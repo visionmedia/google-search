@@ -16,7 +16,7 @@ describe Google::Search::Response do
   
   describe "#items" do
     it "should be an array of items" do
-      response = Google::Search::Response.new 'responseData' => {
+      data = { 'responseData' => {
         'results' => [
           {"GsearchResultClass"=>"GwebSearch",
             "title"=>"foobar - Wikipedia, the free encyclopedia",
@@ -29,7 +29,8 @@ describe Google::Search::Response do
             "titleNoFormatting"=>"foobar - Wikipedia, the free encyclopedia",
             "unescapedUrl"=>"http://en.wikipedia.org/wiki/Foobar"}  
         ]
-      }
+      }}
+      response = Google::Search::Response.new data
       response.items.first.should be_a(Google::Search::Item)
     end
   end
