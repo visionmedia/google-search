@@ -1,5 +1,6 @@
 
 require 'json'
+require 'open-uri'
 
 module Google
   class Search
@@ -68,6 +69,9 @@ module Google
       @api_key = options[:api_key]
     end
     
+    ##
+    # Return URI.
+    
     def get_uri
       URI + "/G#{@type}Search?" + {
         :lstkp => @offset,
@@ -78,8 +82,18 @@ module Google
       }.map { |key, value| "#{key}=#{value}" }.join('&')
     end
     
+    ##
+    # Return raw JSON response string.
+    
     def get_raw
-      p get_uri
+      open(get_uri).read
+    end
+    
+    ##
+    # Return hash parsed from the raw JSON response.
+    
+    def get_json
+      JSON.parse get_raw
     end
   end
 end
