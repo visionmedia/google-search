@@ -26,16 +26,19 @@ describe Google::Search do
   
   describe "#get_hash" do
     it "should return JSON converted to a hash" do
+      @search.stub!(:get_raw).and_return fixture('web-response.json')
       @search.get_hash.should be_a(Hash)
     end
   end
   
   describe "#get_response" do
     it "should return a Response object" do
+      @search.stub!(:get_raw).and_return fixture('web-response.json')
       @search.get_response.should be_a(Google::Search::Response)
     end
     
     it "should populate #raw" do
+      @search.stub!(:get_raw).and_return fixture('web-response.json')
       @search.get_response.raw.should be_a(String)
     end
   end
