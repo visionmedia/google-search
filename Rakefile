@@ -5,7 +5,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new "Google Search", Google::Search::VERSION do |p|
+Echoe.new "google-search", Google::Search::VERSION do |p|
   p.author = "TJ Holowaychuk"
   p.email = "tj@vision-media.ca"
   p.summary = "Google Search API"

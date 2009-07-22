@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{Google Search}
+  s.name = %q{google-search}
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
@@ -10,11 +10,11 @@ Gem::Specification.new do |s|
   s.description = %q{Google Search API}
   s.email = %q{tj@vision-media.ca}
   s.extra_rdoc_files = ["lib/google-search/version.rb", "lib/google-search.rb", "README.rdoc", "tasks/docs.rake", "tasks/gemspec.rake", "tasks/spec.rake"]
-  s.files = ["History.rdoc", "lib/google-search/version.rb", "lib/google-search.rb", "Rakefile", "README.rdoc", "spec/GEM_spec.rb", "spec/spec_helper.rb", "tasks/docs.rake", "tasks/gemspec.rake", "tasks/spec.rake", "Todo.rdoc", "Manifest", "Google Search.gemspec"]
+  s.files = ["History.rdoc", "lib/google-search/version.rb", "lib/google-search.rb", "Rakefile", "README.rdoc", "spec/GEM_spec.rb", "spec/spec_helper.rb", "tasks/docs.rake", "tasks/gemspec.rake", "tasks/spec.rake", "Todo.rdoc", "Manifest", "google-search.gemspec"]
   s.homepage = %q{http://github.com/visionmedia/google-search}
-  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Google Search", "--main", "README.rdoc"]
+  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Google-search", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{google search}
+  s.rubyforge_project = %q{google-search}
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Google Search API}
 
