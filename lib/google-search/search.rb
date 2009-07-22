@@ -7,6 +7,22 @@ module Google
     
     URI = 'http://www.google.com/uds'
     
+    #--
+    # Response
+    #++
+    
+    class Response
+      attr_reader :data
+      
+      def initialize hash
+        @data = hash
+      end
+      
+      def valid?
+        false
+      end
+    end
+    
     ##
     # Version. Defaults to 1.0
     
@@ -96,5 +112,14 @@ module Google
     def get_hash
       JSON.parse get_raw
     end
+    
+    ##
+    # Return Response object wrapping the JSON
+    # response hash.
+    
+    def get_response
+      Response.new get_hash
+    end
+    
   end
 end

@@ -27,7 +27,12 @@ describe Google::Search do
   describe "#get_hash" do
     it "should return JSON converted to a hash" do
       @search.get_hash.should be_a(Hash)
-      p @search.get_hash
+    end
+  end
+  
+  describe "#get_response" do
+    it "should return a Response object" do
+      @search.get_response.should be_a(Google::Search::Response)
     end
   end
 end
