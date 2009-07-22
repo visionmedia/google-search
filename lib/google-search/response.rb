@@ -39,6 +39,7 @@ module Google
         if valid?
           # TODO const_get ? ... type.capitalize
           @items = @hash['responseData']['results'].map do |result|
+            klass = Google::Search::Item.class_for result['GsearchResultClass']
             Google::Search::Item.new result
           end
         end
@@ -50,6 +51,7 @@ module Google
       def valid?
         @hash['responseStatus'] == 200
       end
+      
     end
   end
 end

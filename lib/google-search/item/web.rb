@@ -30,9 +30,12 @@ module Google
         attr_reader :unescaped_uri
         
         ##
-        # Description body.
+        # Contents.
         
         attr_reader :contents
+        
+        ##
+        # Initialize with _hash_.
 
         def initialize hash
           @title = hash[:title]
