@@ -51,6 +51,9 @@ module Google
     
     attr_reader :type
     
+    ##
+    # Initialize search _type_ with _options_.
+    
     def initialize type, options = {}
       @type = type
       @version = options[:version] || 1.0
