@@ -73,14 +73,14 @@ module Google
     # Return URI.
     
     def get_uri
-      URI + "/G#{@type}Search?" + {
-        :lstkp => @offset,
-        :rsz => @size,
-        :hl => @lang,
-        :key => @api_key,
-        :v => @version,
-        :q => @query
-      }.map { |key, value| "#{key}=#{value}" }.join('&')
+      URI + "/G#{@type}Search?" + [
+        [:lstkp, offset],
+        [:rsz, size],
+        [:hl, lang],
+        [:key, api_key],
+        [:v, version],
+        [:q, query]
+      ].map { |key, value| "#{key}=#{value}" }.join('&')
     end
     
     ##
