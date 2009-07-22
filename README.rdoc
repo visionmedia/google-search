@@ -15,6 +15,7 @@
 * start ? make sure paging works
 * response.status
 * response.details
+* promote .. submit to google ??
 
 == Example Google::Search::Response
 
