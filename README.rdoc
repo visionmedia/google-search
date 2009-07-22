@@ -19,7 +19,7 @@
   item.visible_uri   # => 'en.wikipedia.org'
   item.description   # => 'Foobar is often used....'
 
-== Example JSON Response
+== Example Hash Response
 
 Below is the raw JSON object response provided by Google:
 

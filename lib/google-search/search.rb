@@ -102,7 +102,10 @@ module Google
     # response hash.
     
     def get_response
-      Response.new get_hash
+      raw = get_raw
+      response = Response.new JSON.parse(raw)
+      response.raw = raw
+      response
     end
     
   end

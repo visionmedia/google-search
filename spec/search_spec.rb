@@ -34,5 +34,9 @@ describe Google::Search do
     it "should return a Response object" do
       @search.get_response.should be_a(Google::Search::Response)
     end
+    
+    it "should populate #raw" do
+      @search.get_response.raw.should be_a(String)
+    end
   end
 end
