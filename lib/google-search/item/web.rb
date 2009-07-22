@@ -32,7 +32,7 @@ module Google
         ##
         # Description body.
         
-        attr_reader :description
+        attr_reader :contents
 
         def initialize hash
           @title = hash[:title]

@@ -31,7 +31,7 @@
   item.cached_uri    # => 'http://www.google.com/search?q=cache:4styY9qq7tYJ:en.wikipedia.org'
   item.unescaped_uri # => 'http://en.wikipedia.org/wiki/Foobar' 
   item.visible_uri   # => 'en.wikipedia.org'
-  item.description   # => 'Foobar is often used....'
+  item.contents      # => 'Foobar is often used....'
 
 == Example Hash Response
 
