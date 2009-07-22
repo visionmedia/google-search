@@ -19,7 +19,7 @@ module Google
       end
       
       def valid?
-        false
+        data['responseStatus'] == 200
       end
     end
     

@@ -3,6 +3,80 @@
 
 * Coming Soon
 
+== Example JSON Response
+
+Below is the raw JSON object response provided by Google:
+
+  {"responseData"=>
+    {"results"=>
+      [{"GsearchResultClass"=>"GwebSearch",
+        "title"=>"foobar - Wikipedia, the free encyclopedia",
+        "url"=>"http://en.wikipedia.org/wiki/Foobar",
+        "cacheUrl"=>
+         "http://www.google.com/search?q=cache:4styY9qq7tYJ:en.wikipedia.org",
+        "content"=>
+         "Foobar is often used alone; <b>foo</b>, bar, and baz are usually used in that order,   <b>...</b> <b>Foo</b> has entered the English language as a neologism and is considered by <b>...</b>",
+        "visibleUrl"=>"en.wikipedia.org",
+        "titleNoFormatting"=>"foobar - Wikipedia, the free encyclopedia",
+        "unescapedUrl"=>"http://en.wikipedia.org/wiki/Foobar"},
+       {"GsearchResultClass"=>"GwebSearch",
+        "title"=>
+         "Get the 411 on Anyone with Free White Pages, People Search and <b>...</b>",
+        "url"=>"http://www.foo.com/",
+        "cacheUrl"=>
+         "http://www.google.com/search?q=cache:aJjqmBB29rgJ:www.foo.com",
+        "content"=>
+         "Get the free 411, white pages and people search with a new way to search for   people.",
+        "visibleUrl"=>"www.foo.com",
+        "titleNoFormatting"=>
+         "Get the 411 on Anyone with Free White Pages, People Search and ...",
+        "unescapedUrl"=>"http://www.foo.com/"},
+       {"GsearchResultClass"=>"GwebSearch",
+        "title"=>"<b>Foo</b> Fighters",
+        "url"=>"http://www.foofighters.com/",
+        "cacheUrl"=>
+         "http://www.google.com/search?q=cache:mH6Rsc-rjNgJ:www.foofighters.com",
+        "content"=>
+         "Jul 8, 2009 <b>...</b> Official <b>Foo</b> Fighters guitar, drum, and bass tabs.",
+        "visibleUrl"=>"www.foofighters.com",
+        "titleNoFormatting"=>"Foo Fighters",
+        "unescapedUrl"=>"http://www.foofighters.com/"},
+       {"GsearchResultClass"=>"GwebSearch",
+        "title"=>"What is <b>foo</b>? - a definition from Whatis.com",
+        "url"=>
+         "http://searchcio-midmarket.techtarget.com/sDefinition/0,,sid183_gci212139,00.html",
+        "cacheUrl"=>
+         "http://www.google.com/search?q=cache:mdfUdBXGcm0J:searchcio-midmarket.techtarget.com",
+        "content"=>
+         "Dec 14, 2006 <b>...</b> Just as economists sometimes use the term &#39;widget&#39; as the ultimate substitute   for &#39;something&#39; that is being measured, programmers tend to <b>...</b>",
+        "visibleUrl"=>"searchcio-midmarket.techtarget.com",
+        "titleNoFormatting"=>"What is foo? - a definition from Whatis.com",
+        "unescapedUrl"=>
+         "http://searchcio-midmarket.techtarget.com/sDefinition/0,,sid183_gci212139,00.html"}],
+     "cursor"=>
+      {"estimatedResultCount"=>"33300000",
+       "moreResultsUrl"=>
+        "http://www.google.com/search?oe=utf8&ie=utf8&source=uds&start=0&hl=en&q=foo",
+       "currentPageIndex"=>0,
+       "pages"=>
+        [{"start"=>"0", "label"=>1},
+         {"start"=>"4", "label"=>2},
+         {"start"=>"8", "label"=>3},
+         {"start"=>"12", "label"=>4},
+         {"start"=>"16", "label"=>5},
+         {"start"=>"20", "label"=>6},
+         {"start"=>"24", "label"=>7},
+         {"start"=>"28", "label"=>8}]}},
+   "responseStatus"=>200,
+   "responseDetails"=>nil}
+  {"responseData"=>
+    {"results"=>[],
+     "cursor"=>
+      {"moreResultsUrl"=>
+        "http://www.google.com/search?oe=utf8&ie=utf8&source=uds&start=0&hl=en&q"}},
+   "responseStatus"=>200,
+   "responseDetails"=>nil}
+
 == License:
 
 (The MIT License)
