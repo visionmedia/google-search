@@ -37,6 +37,8 @@ describe Google::Search do
     
     it "should populate #raw" do
       @search.get_response.raw.should be_a(String)
+      require 'pp'
+      pp Google::Search.new(:video).get_hash
     end
   end
 end

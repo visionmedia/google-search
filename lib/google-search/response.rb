@@ -4,6 +4,16 @@ module Google
     class Response
       
       ##
+      # Response status code.
+      
+      attr_reader :status
+      
+      ##
+      # Response details.
+      
+      attr_reader :details
+      
+      ##
       # Raw JSON string.
       
       attr_accessor :raw
@@ -23,6 +33,8 @@ module Google
       
       def initialize hash
         @hash = hash
+        @status = hash['responseStatus']
+        @details = hash['responseDetails']
         @items = []
         if valid?
           @items = @hash['responseData']['results'].map do |result|

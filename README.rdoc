@@ -3,6 +3,18 @@
 
 * Coming Soon
 
+== Todo
+
+* Fixtures
+* Item per type ... Item::Video, Item::Web etc
+* API for mapping hash to attributes
+* response.estimated_count
+* Add Google::Search.json_decode
+* response.more 
+* start ? make sure paging works
+* response.status
+* response.details
+
 == Example Google::Search::Response
 
   response.length # => 4
