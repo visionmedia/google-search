@@ -6,11 +6,12 @@
 == Todo
 
 * Fixtures
+* local?
 * Item per type ... Item::Video, Item::Web etc
 * API for mapping hash to attributes
 * response.estimated_count
 * Add Google::Search.json_decode
-* response.more 
+* response.get_more # => Response 
 * start ? make sure paging works
 * response.status
 * response.details
@@ -22,7 +23,7 @@
   response.hash   # => Hash
   response.items  # => [Google::Search::Response::Item, ...]
   
-== Example Google::Search::Item
+== Example Google::Search::Item::Web
 
   item.title         # => 'foobar - Wikipedia, the free encyclopedia'
   item.uri           # => 'http://en.wikipedia.org/wiki/Foobar' 
