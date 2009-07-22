@@ -28,7 +28,7 @@ module Google
     attr_accessor :query
     
     ##
-    # API Key.
+    # API Key. Defaults to :notsupplied
     
     attr_accessor :api_key
     
@@ -66,7 +66,7 @@ module Google
       @size = options[:size] || :small
       @lang = options[:lang] || :en
       @query = options[:query]
-      @api_key = options[:api_key]
+      @api_key = options[:api_key] || :notsupplied
     end
     
     ##
@@ -78,6 +78,7 @@ module Google
         :rsz => @size,
         :hl => @lang,
         :key => @api_key,
+        :v => @version,
         :q => @query
       }.map { |key, value| "#{key}=#{value}" }.join('&')
     end

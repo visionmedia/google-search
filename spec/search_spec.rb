@@ -14,7 +14,7 @@ describe Google::Search do
   
   describe "#get_uri" do
     it "should return a URI" do
-      @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?key=&hl=en&q=foo&lstkp=0&rsz=small'
+      @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?key=notsupplied&hl=en&v=1.0&q=foo&lstkp=0&rsz=small'
     end
   end
   
@@ -27,6 +27,7 @@ describe Google::Search do
   describe "#get_hash" do
     it "should return JSON converted to a hash" do
       @search.get_hash.should be_a(Hash)
+      p @search.get_hash
     end
   end
 end
