@@ -22,3 +22,4 @@
 #++
 
 require 'google-search/version'
+require 'google-search/search'
