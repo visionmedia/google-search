@@ -37,6 +37,7 @@ module Google
         @details = hash['responseDetails']
         @items = []
         if valid?
+          # TODO const_get ? ... type.capitalize
           @items = @hash['responseData']['results'].map do |result|
             Google::Search::Item.new result
           end

@@ -70,7 +70,7 @@ module Google
     end
     
     ##
-    # Return URI.
+    # Return uri.
     
     def get_uri
       URI + "/G#{@type}Search?" + [
