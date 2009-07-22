@@ -34,12 +34,5 @@ describe Google::Search do
     it "should return a Response object" do
       @search.get_response.should be_a(Google::Search::Response)
     end
-    
-    it "should validate responses" do
-      @search.get_response.should be_valid
-      @search.query = nil
-      @search.lang = :fake
-      @search.get_response.should_not be_valid
-    end
   end
 end
