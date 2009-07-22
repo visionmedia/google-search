@@ -1,5 +1,5 @@
 #--
-# Copyright (c) 2009 GEM_AUTHOR
+# Copyright (c) 2009 2009 TJ Holowaychuk <tj@vision-media.ca>
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -21,4 +21,4 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
-require 'GEM_NAME/version'
+require 'google-search/version'

@@ -1,0 +1,12 @@
+History.rdoc
+lib/google-search/version.rb
+lib/google-search.rb
+Rakefile
+README.rdoc
+spec/GEM_spec.rb
+spec/spec_helper.rb
+tasks/docs.rake
+tasks/gemspec.rake
+tasks/spec.rake
+Todo.rdoc
+Manifest
