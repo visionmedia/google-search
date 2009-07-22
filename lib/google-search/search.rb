@@ -1,6 +1,10 @@
 
+require 'json'
+
 module Google
   class Search
+    
+    URI = 'http://www.google.com/uds'
     
     ##
     # Version. Defaults to 1.0
@@ -49,7 +53,7 @@ module Google
     #   - :patent
     #
     
-    attr_reader :type
+    attr_accessor :type
     
     ##
     # Initialize search _type_ with _options_.
@@ -62,6 +66,20 @@ module Google
       @lang = options[:lang] || :en
       @query = options[:query]
       @api_key = options[:api_key]
+    end
+    
+    def get_uri
+      URI + "/G#{@type}Search?" + {
+        :lstkp => @offset,
+        :rsz => @size,
+        :hl => @lang,
+        :key => @api_key,
+        :q => @query
+      }.map { |key, value| "#{key}=#{value}" }.join('&')
+    end
+    
+    def get_raw
+      p get_uri
     end
   end
 end
