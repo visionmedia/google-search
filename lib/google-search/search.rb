@@ -92,7 +92,7 @@ module Google
     ##
     # Return hash parsed from the raw JSON response.
     
-    def get_json
+    def get_hash
       JSON.parse get_raw
     end
   end

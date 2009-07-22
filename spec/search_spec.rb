@@ -24,9 +24,9 @@ describe Google::Search do
     end
   end
   
-  describe "#get_json" do
+  describe "#get_hash" do
     it "should return JSON converted to a hash" do
-      @search.get_json.should be_a(Hash)
+      @search.get_hash.should be_a(Hash)
     end
   end
 end
