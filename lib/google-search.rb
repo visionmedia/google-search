@@ -22,4 +22,6 @@
 #++
 
 require 'google-search/version'
+require 'google-search/item'
+require 'google-search/response'
 require 'google-search/search'
