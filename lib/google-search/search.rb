@@ -94,7 +94,7 @@ module Google
     # Return hash parsed from the raw JSON response.
     
     def get_hash
-      JSON.parse get_raw
+      Search.json_decode get_raw
     end
     
     ##
@@ -106,6 +106,13 @@ module Google
       response = Response.new JSON.parse(raw)
       response.raw = raw
       response
+    end
+    
+    ##
+    # Decode JSON _string_.
+    
+    def self.json_decode string
+      JSON.parse string
     end
     
   end

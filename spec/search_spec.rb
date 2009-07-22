@@ -38,6 +38,5 @@ describe Google::Search do
     it "should populate #raw" do
       @search.get_response.raw.should be_a(String)
     end
-    
   end
 end
