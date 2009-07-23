@@ -52,9 +52,11 @@ module Google
         @details = hash['responseDetails']
         @items = []
         if valid?
-          @more_uri = hash['responseData']['cursor']['moreResultsUrl']
-          @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i
-          @page = hash['responseData']['cursor']['currentPageIndex'].to_i 
+          if hash['responseData'].include? 'cursor'
+            @more_uri = hash['responseData']['cursor']['moreResultsUrl']
+            @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i
+            @page = hash['responseData']['cursor']['currentPageIndex'].to_i 
+          end
           @items = @hash['responseData']['results'].map do |result|
             item_class = Google::Search::Item.class_for result['GsearchResultClass']
             item_class.new result
