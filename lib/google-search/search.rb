@@ -78,18 +78,26 @@ module Google
     attr_accessor :type
     
     ##
+    # Additional options. All those listed above
+    # are deleted. The remaining represent query
+    # string key / value pairs.
+    
+    attr_reader :options
+    
+    ##
     # Initialize search _type_ with _options_. Optionally
     # a block may be passed, and the Search instance will 
     # be yielded to it.
     
     def initialize type, options = {}, &block
       @type = type
-      @version = options[:version] || 1.0
-      @offset = options[:offset] || 0
-      @size = options[:size] || :large
-      @language = options[:language] || :en
-      @query = options[:query]
-      @api_key = options[:api_key] || :notsupplied
+      @version = options.delete(:version) || 1.0
+      @offset = options.delete(:offset) || 0
+      @size = options.delete(:size) || :large
+      @language = options.delete(:language) || :en
+      @query = options.delete(:query)
+      @api_key = options.delete(:api_key) || :notsupplied
+      @options = options
       yield self if block
     end
     
@@ -127,14 +135,14 @@ module Google
     def get_uri
       raise Error, 'query must be present' unless query.respond_to? :to_str
       raise Error, 'API version must be present' unless Numeric === version
-      URI + "/G#{@type}Search?" + [
+      URI + "/G#{@type}Search?" + ([
         [:start, offset],
         [:rsz, size],
         [:hl, language],
         [:key, api_key],
         [:v, version],
         [:q, Search.url_encode(query.to_str)]
-      ].map { |key, value| "#{key}=#{value}" }.join('&')
+      ] + options.to_a).map { |key, value| "#{key}=#{value}" }.join('&')
     end
     
     ##

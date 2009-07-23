@@ -21,6 +21,11 @@ describe Google::Search do
       @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo'
     end
     
+    it "should allow arbitrary key/value pairs" do
+      search = Google::Search.new :web, :query => 'foo', :foo => 'bar'
+      search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo&foo=bar'
+    end
+    
     it "should raise an error when no query string is present" do
       @search.query = nil
       lambda { @search.get_uri }.should raise_error(Google::Search::Error, /query/)
