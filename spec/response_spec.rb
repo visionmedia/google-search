@@ -34,9 +34,5 @@ describe Google::Search::Response do
     it "should set #page" do
       @response.page.should == 0
     end
-    
-    it "should set #more_uri" do
-      @response.more_uri.should == 'http://www.google.com/search?oe=utf8&ie=utf8&source=uds&start=0&hl=en&q=foo'
-    end
   end
 end

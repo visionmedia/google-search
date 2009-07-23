@@ -37,12 +37,7 @@ module Google
       # Current page index.
       
       attr_reader :page
-      
-      ##
-      # Uri to more results.
-      
-      attr_reader :more_uri
-      
+
       ##
       # Initialize with _hash_.
       
@@ -53,7 +48,6 @@ module Google
         @items = []
         if valid?
           if hash['responseData'].include? 'cursor'
-            @more_uri = hash['responseData']['cursor']['moreResultsUrl']
             @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i
             @page = hash['responseData']['cursor']['currentPageIndex'].to_i 
           end
