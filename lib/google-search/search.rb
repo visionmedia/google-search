@@ -90,7 +90,7 @@ module Google
     def each_item &block
       response = self.next.response
       if response.valid?
-        response.items.each { |item| yield item }
+        response.each { |item| yield item }
         each_item &block
       end
     end

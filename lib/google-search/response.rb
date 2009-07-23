@@ -3,6 +3,12 @@ module Google
   class Search
     class Response
       
+      #--
+      # Mixins
+      #++
+      
+      include Enumerable
+      
       ##
       # Response status code.
       
@@ -65,6 +71,14 @@ module Google
           end
         end
       end
+      
+      ##
+      # Iterate each item with _block_.
+      
+      def each_item &block
+        items.each { |item| yield item }
+      end
+      alias :each :each_item
       
       ##
       # Check if the response is valid.
