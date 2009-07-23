@@ -19,6 +19,10 @@ describe Google::Search::Response do
   end
   
   describe "#initialize" do
+    it "should not throw an error when invalid" do
+      lambda { Google::Search::Response.new json_fixture('invalid-response') }.should_not raise_error
+    end
+    
     it "should set #items" do
       @response.items.first.should be_a(Google::Search::Item)
     end
