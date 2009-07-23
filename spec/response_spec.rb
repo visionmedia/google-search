@@ -13,6 +13,22 @@ describe Google::Search::Response do
     
     it "should set #items" do
       @response.items.first.should be_a(Google::Search::Item)
+      @response.items.length.should == 4
+    end
+    
+    it "should set item indices" do
+      @response.items[0].index.should == 0
+      @response.items[1].index.should == 1
+      @response.items[2].index.should == 2
+    end
+    
+    it "should set item indices when page is present" do
+      @response = Google::Search::Response.new json_fixture('web-2-response')
+      @response.size.should == :small
+      @response.page.should == 1
+      @response.items[0].index.should == 4
+      @response.items[1].index.should == 5
+      @response.items[2].index.should == 6
     end
     
     it "should set #estimated_count" do

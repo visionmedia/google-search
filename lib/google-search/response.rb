@@ -37,6 +37,11 @@ module Google
       # Current page index.
       
       attr_reader :page
+      
+      ##
+      # Size of response.
+      
+      attr_reader :size
 
       ##
       # Initialize with _hash_.
@@ -44,19 +49,19 @@ module Google
       def initialize hash
         @page = 0
         @hash = hash
+        @size = (hash['responseSize'] || :large).to_sym
+        @items = []
         @status = hash['responseStatus']
         @details = hash['responseDetails']
-        @items = []
         if valid?
           if hash['responseData'].include? 'cursor'
             @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i
-            @page = hash['responseData']['cursor']['currentPageIndex'].to_i 
+            @page = hash['responseData']['cursor']['currentPageIndex'].to_i
           end
-          i = page
-          @items = @hash['responseData']['results'].map do |result|
+          @hash['responseData']['results'].each_with_index do |result, i|
             item_class = Google::Search::Item.class_for result['GsearchResultClass']
-            result['index'] = i; i += 1
-            item_class.new result
+            result['index'] = i + Google::Search.size_for(size) * page
+            items << item_class.new(result)
           end
         end
       end

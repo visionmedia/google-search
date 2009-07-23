@@ -92,16 +92,8 @@ module Google
     # Prepare for next request.
     
     def next
-      @offset += size_for(size) if sent
+      @offset += Search.size_for(size) if sent
       self
-    end
-    
-    ##
-    # Return int for size _sym_.
-    
-    def size_for sym
-      { :small => 4,
-        :large => 8 }[sym]
     end
     
     ##
@@ -125,11 +117,21 @@ module Google
     
     def get_response
       raw = get_raw
-      response = Response.new JSON.parse(raw)
+      hash = Search.json_decode raw
+      hash['responseSize'] = size
+      response = Response.new hash
       response.raw = raw
       response
     end
     alias :response :get_response
+    
+    ##
+    # Return int for size _sym_.
+    
+    def self.size_for sym
+      { :small => 4,
+        :large => 8 }[sym]
+    end
     
     ##
     # Decode JSON _string_.
