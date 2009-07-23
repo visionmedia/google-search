@@ -42,4 +42,15 @@ describe Google::Search do
       @search.get_response.raw.should be_a(String)
     end
   end
+  
+  describe "#get_more_uri" do
+    it "should return a uri to the new offset" do
+      @search.get_more_uri.should == 'http://www.google.com/uds/GwebSearch?start=4&rsz=small&hl=en&key=notsupplied&v=1.0&q=foo'
+      @search.get_more_uri.should == 'http://www.google.com/uds/GwebSearch?start=8&rsz=small&hl=en&key=notsupplied&v=1.0&q=foo'
+      @search.size = :large
+      @search.offset = 0
+      @search.get_more_uri.should == 'http://www.google.com/uds/GwebSearch?start=8&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo'
+      @search.get_more_uri.should == 'http://www.google.com/uds/GwebSearch?start=16&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo'
+    end
+  end
 end

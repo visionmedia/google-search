@@ -35,5 +35,5 @@ describe Google::Search::Response do
       response.should be_valid
     end
   end
-
+  
 end

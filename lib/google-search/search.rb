@@ -84,6 +84,19 @@ module Google
     end
     
     ##
+    # Return uri to more results.
+    
+    def get_more_uri
+      @offset += size_for(size)
+      get_uri
+    end
+    
+    def size_for sym
+      { :small => 4,
+        :large => 8 }[sym]
+    end
+    
+    ##
     # Return raw JSON response string.
     
     def get_raw
