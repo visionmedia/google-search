@@ -20,7 +20,7 @@ module Google
     ##
     # Language. Defaults to :en
     
-    attr_accessor :lang
+    attr_accessor :language
     
     ##
     # Query. Defaults to nil
@@ -64,7 +64,7 @@ module Google
       @version = options[:version] || 1.0
       @offset = options[:offset] || 0
       @size = options[:size] || :small
-      @lang = options[:lang] || :en
+      @language = options[:language] || :en
       @query = options[:query]
       @api_key = options[:api_key] || :notsupplied
     end
@@ -76,7 +76,7 @@ module Google
       URI + "/G#{@type}Search?" + [
         [:start, offset],
         [:rsz, size],
-        [:hl, lang],
+        [:hl, language],
         [:key, api_key],
         [:v, version],
         [:q, query]
