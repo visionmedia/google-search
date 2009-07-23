@@ -6,12 +6,8 @@ require 'rext/all'
 
 def find_item uri, query = nil
   @search = Google::Search.new(:web, :query => query.url_encode, :size => :large) if query
-  print '.'; $stdout.flush
-  response = @search.next.response
-  return unless response.valid?
-  response.items.find do |item|
-    item.uri =~ uri
-  end || find_item(uri)
+  @search.each_response { print '.'; $stdout.flush }
+  @search.find { |item| item.uri =~ uri }
 end
 
 def find uri, query

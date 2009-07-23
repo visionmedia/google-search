@@ -85,6 +85,14 @@ module Google
     end
     
     ##
+    # Set a response _block_ which is called every time
+    # #get_response is called. Useful for reporting etc.
+    
+    def each_response &block
+      @each_response = block
+    end
+    
+    ##
     # Iterate each item with _block_.
     
     def each_item &block
@@ -143,6 +151,7 @@ module Google
       hash['responseSize'] = size
       response = Response.new hash
       response.raw = raw
+      @each_response.call response if @each_response
       response
     end
     alias :response :get_response
