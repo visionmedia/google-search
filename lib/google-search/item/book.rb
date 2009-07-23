@@ -20,11 +20,6 @@ module Google
         attr_reader :published_year
         
         ##
-        # Thumbnail image uri.
-
-        attr_reader :thumbnail_uri
-        
-        ##
         # Page count.
         
         attr_reader :pages
@@ -37,7 +32,6 @@ module Google
           @author = hash['authors']
           @published_year = hash['publishedYear'].to_i
           @id = hash['bookId']
-          @thumbnail_uri = hash['tbUrl']
           @pages = hash['pageCount'].to_i
         end
       end

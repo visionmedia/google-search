@@ -14,6 +14,21 @@ module Google
       attr_reader :uri
       
       ##
+      # Unescaped uri.
+      
+      attr_reader :unescaped_uri
+
+      ##
+      # Visible uri.
+      
+      attr_reader :visible_uri
+      
+      ##
+      # Thumbnail uri.
+      
+      attr_reader :thumbnail_uri
+      
+      ##
       # Contents.
       
       attr_reader :content
@@ -25,6 +40,9 @@ module Google
         @title = hash['titleNoFormatting'] || hash['title']
         @uri = hash['url'] || hash['postUrl']
         @content = hash['contentNoFormatting'] || hash['content']
+        @unescaped_uri = hash['unescapedUrl']
+        @thumbnail_uri = hash['tbUrl']
+        @visible_uri = hash['visibleUrl']
       end
       
       ##

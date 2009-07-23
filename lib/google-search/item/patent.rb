@@ -4,47 +4,26 @@ module Google
     class Item
       class Patent < self
         
-        ##
-        # Rating float.
+        attr_reader :id
         
-        attr_reader :rating
+        attr_reader :status
         
-        ##
-        # Video type.
-        
-        attr_reader :type
+        attr_reader :assignee
         
         ##
-        # Publisher.
+        # Application DateTime.
         
-        attr_reader :publisher
-        
-        ##
-        # Published DateTime.
-        
-        attr_reader :published
-        
-        ##
-        # Thumbnail image uri.
-        
-        attr_reader :thumbnail_uri
-        
-        ##
-        # Duration in seconds.
-        
-        attr_reader :duration
+        attr_reader :application_date
         
         ##
         # Initialize with _hash_.
 
         def initialize hash
           super
-          @rating = hash['rating'].to_f
-          @type = hash['videoType']
-          @publisher = hash['publisher']
-          @published = DateTime.parse hash['published']
-          @thumbnail_uri = hash['tbUrl']
-          @duration = hash['duration'].to_i
+          @id = hash['patentNumber'].to_i
+          @application_date = DateTime.parse hash['applicationDate']
+          @assignee = hash['assignee']
+          @status = hash['patentStatus']
         end
       end
     end

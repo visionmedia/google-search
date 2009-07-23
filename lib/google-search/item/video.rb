@@ -25,11 +25,6 @@ module Google
         attr_reader :published
         
         ##
-        # Thumbnail image uri.
-        
-        attr_reader :thumbnail_uri
-        
-        ##
         # Duration in seconds.
         
         attr_reader :duration
@@ -43,7 +38,6 @@ module Google
           @type = hash['videoType']
           @publisher = hash['publisher']
           @published = DateTime.parse hash['published']
-          @thumbnail_uri = hash['tbUrl']
           @duration = hash['duration'].to_i
         end
       end
