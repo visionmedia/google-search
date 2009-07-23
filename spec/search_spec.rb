@@ -45,11 +45,14 @@ describe Google::Search do
   
   describe "#next" do
     it "should prepare offset" do
-      @search.next.offset.should == 4
+      @search.next.offset.should == 0; @search.get_raw
+      @search.next.offset.should == 4; @search.get_raw
       @search.next.offset.should == 8
       @search.size = :large
+      @search.sent = false
       @search.offset = 0
-      @search.next.offset.should == 8
+      @search.next.offset.should == 0; @search.get_raw
+      @search.next.offset.should == 8; @search.get_raw
       @search.next.offset.should == 16
     end
   end

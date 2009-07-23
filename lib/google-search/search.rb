@@ -23,6 +23,11 @@ module Google
     attr_accessor :language
     
     ##
+    # Weither or not a search request has been sent.
+    
+    attr_accessor :sent
+    
+    ##
     # Query. Defaults to nil
     
     attr_accessor :query
@@ -87,7 +92,7 @@ module Google
     # Prepare for next request.
     
     def next
-      @offset += size_for(size)
+      @offset += size_for(size) if sent
       self
     end
     
@@ -103,6 +108,7 @@ module Google
     # Return raw JSON response string.
     
     def get_raw
+      @sent = true
       open(get_uri).read
     end
     
