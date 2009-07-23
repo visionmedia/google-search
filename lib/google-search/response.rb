@@ -39,16 +39,22 @@ module Google
       attr_reader :page
       
       ##
+      # Uri to more results.
+      
+      attr_reader :more_uri
+      
+      ##
       # Initialize with _hash_.
       
       def initialize hash
         @hash = hash
         @status = hash['responseStatus']
         @details = hash['responseDetails']
-        @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i rescue 0
-        @page = hash['responseData']['cursor']['currentPageIndex'].to_i rescue 0
         @items = []
         if valid?
+          @more_uri = hash['responseData']['cursor']['moreResultsUrl']
+          @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i
+          @page = hash['responseData']['cursor']['currentPageIndex'].to_i 
           @items = @hash['responseData']['results'].map do |result|
             item_class = Google::Search::Item.class_for result['GsearchResultClass']
             item_class.new result
