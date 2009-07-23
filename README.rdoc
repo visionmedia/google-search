@@ -43,6 +43,13 @@ is no reason to do so manually.
     end
   end
   
+== Arbitrary Query String Support
+
+Arbitrary key / value pairs may be passed to Google::Search.new, all options
+passed that are not assigned (deleted) will pass on to be part of the query string. 
+
+For argument reference visit: http://code.google.com/apis/ajaxsearch/documentation/reference.html#_fonje_web
+  
 == Items
 
 Each item type (web, image, etc) is a subclass of Google::Search::Item,
