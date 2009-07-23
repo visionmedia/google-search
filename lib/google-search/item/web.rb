@@ -2,7 +2,7 @@
 module Google
   class Search
     class Item
-      class Web < Item
+      class Web < self
         
         ##
         # Unformatted page title.
@@ -17,7 +17,7 @@ module Google
         ##
         # Cached uri.
         
-        attr_reader :cached_uri
+        attr_reader :cache_uri
         
         ##
         # Visible uri.
@@ -38,12 +38,12 @@ module Google
         # Initialize with _hash_.
 
         def initialize hash
-          @title = hash[:title]
-          @uri = hash[:url]
-          @cached_uri = hash[:cachedUrl]
-          @visibile_uri = hash[:visibleUrl]
-          @unescaped_uri = hash[:unescapedUrl]
-          @description = hash[:content]
+          @title = hash['title']
+          @uri = hash['url']
+          @cache_uri = hash['cacheUrl']
+          @visible_uri = hash['visibleUrl']
+          @unescaped_uri = hash['unescapedUrl']
+          @contents = hash['content']
         end
       end
     end

@@ -8,5 +8,5 @@ def fixture path
 end
 
 def json_fixture name
-  JSON.parse fixture("#{name}.json")
+  Google::Search.json_decode fixture("#{name}.json")
 end
