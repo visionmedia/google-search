@@ -108,6 +108,14 @@ module Google
     alias :each :each_item
     
     ##
+    # Return all items.
+    
+    def all_items
+      select { true }
+    end
+    alias :all :all_items
+    
+    ##
     # Return uri.
     
     def get_uri
