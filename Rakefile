@@ -10,7 +10,7 @@ Echoe.new "google-search", Google::Search::VERSION do |p|
   p.email = "tj@vision-media.ca"
   p.summary = "Google Search API"
   p.url = "http://github.com/visionmedia/google-search"
-  p.runtime_dependencies = []
+  p.runtime_dependencies = << 'json'
 end
 
 Dir['tasks/**/*.rake'].sort.each { |f| load f }
