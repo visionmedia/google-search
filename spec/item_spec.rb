@@ -89,7 +89,7 @@ describe Google::Search::Item::Local do
       item.accuracy.should == 8
       item.country.should == 'United States'
       item.max_age.should == 604800
-      item.static_map_uri.should == 'http://mt.google.com/mapdata?cc=us&tstyp=5&Point=b&Point.latitude_e6=37795279&Point.longitude_e6=-122407451&Point.iconid=15&Point=e&w=150&h=100&zl=4'
+      item.thumbnail_uri.should == 'http://mt.google.com/mapdata?cc=us&tstyp=5&Point=b&Point.latitude_e6=37795279&Point.longitude_e6=-122407451&Point.iconid=15&Point=e&w=150&h=100&zl=4'
       item.long.should == -122.407451
       item.street_address.should == '852 Washington St'
       item.content.should == ''
