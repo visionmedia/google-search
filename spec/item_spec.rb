@@ -72,3 +72,20 @@ describe Google::Search::Item::Book do
     end
   end
 end
+
+describe Google::Search::Item::Image do
+  describe "#initialize" do
+    it "should populate attributes" do
+      hash = json_fixture('image-response')['responseData']['results'].first
+      item = Google::Search::Item::Image.new hash
+      item.title.should == 'foo_fighters.jpg'
+      item.content.should == 'Not FBI Agents--Foo Fighters'
+      item.id.should == 'IYlLzX-w4vX2AM'
+      item.uri.should == 'http://tomdiaz.files.wordpress.com/2009/06/foo_fighters.jpg'
+      item.context_uri.should == 'http://tomdiaz.wordpress.com/2009/06/'
+      item.visible_uri.should == 'tomdiaz.wordpress.com'
+      item.unescaped_uri.should == 'http://tomdiaz.files.wordpress.com/2009/06/foo_fighters.jpg'
+      item.thumbnail_uri.should == 'http://images.google.com/images?q=tbn:IYlLzX-w4vX2AM:tomdiaz.files.wordpress.com/2009/06/foo_fighters.jpg'
+    end
+  end
+end

@@ -22,9 +22,9 @@ module Google
       # Initialize with _hash_.
 
       def initialize hash
-        @title = hash['titleNoFormatting']
+        @title = hash['titleNoFormatting'] || hash['title']
         @uri = hash['url'] || hash['postUrl']
-        @content = hash['content']
+        @content = hash['contentNoFormatting'] || hash['content']
       end
       
       ##
