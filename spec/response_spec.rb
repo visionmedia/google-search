@@ -38,6 +38,14 @@ describe Google::Search::Response do
     it "should set #page" do
       @response.page.should == 0
     end
+    
+    it "should set #status" do
+      @response.status.should == 200
+    end
+    
+    it "should set #details" do
+      @response.details.should be_nil
+    end
   end
     
   describe "#valid?" do
