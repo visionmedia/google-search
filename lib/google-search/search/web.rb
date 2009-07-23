@@ -17,7 +17,7 @@ module Google
       #   - :off
       #
       
-      attr_accessor :safe
+      attr_accessor :safety_level
       
       ##
       # Weither or not to filter duplicate results.
@@ -28,7 +28,7 @@ module Google
       #:nodoc:
       
       def initialize options = {}, &block
-        @safe = options.delete :safe
+        @safe = options.delete :safety_level
         @filter = options.delete(:filter) || 1
         super :web, options, &block
       end
@@ -36,9 +36,9 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        raise Error, "invalid safety level `#{safe}'" unless safe.nil? || SAFETY_LEVELS.include?(safe)
+        raise Error, "invalid safety level `#{safety_level}'" unless safety_level.nil? || SAFETY_LEVELS.include?(safety_level)
         super + [
-          [:safe, safe],
+          [:safe, safety_level],
           [ :filter, filter ? 1 : 0]]
       end
     end

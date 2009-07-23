@@ -96,6 +96,18 @@ describe Google::Search::Web do
   end
   
   describe "#get_uri" do
+    describe "safety_level" do
+      it "should validate" do
+        @search.safety_level = :moderate
+        lambda { @search.get_uri }.should_not raise_error
+      end
+      
+      it "should raise an error when invalid" do
+        @search.safety_level = :foo
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /safety/)
+      end
+    end
+    
     describe "filter" do
       it "should default to 1" do
         @search.get_uri.should include('filter=1')
