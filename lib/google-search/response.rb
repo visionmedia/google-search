@@ -48,7 +48,7 @@ module Google
       # Check if the response is valid.
       
       def valid?
-        @hash['responseStatus'] == 200
+        hash['responseStatus'] == 200
       end
       
     end

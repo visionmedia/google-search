@@ -9,7 +9,7 @@ describe Google::Search::Response do
     end
     
     it "should return true when status is 200" do
-      response = Google::Search::Response.new 'responseStatus' => 200
+      response = Google::Search::Response.new 'responseStatus' => 200, 'responseData' => { 'results' => [] }
       response.should be_valid
     end
   end
