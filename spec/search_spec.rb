@@ -14,7 +14,7 @@ describe Google::Search do
   
   describe "#get_uri" do
     it "should return a uri" do
-      @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?lstkp=0&rsz=small&hl=en&key=notsupplied&v=1.0&q=foo'
+      @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=small&hl=en&key=notsupplied&v=1.0&q=foo'
     end
   end
   
