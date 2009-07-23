@@ -4,6 +4,11 @@ module Google
     class Item
       
       ##
+      # Index.
+      
+      attr_reader :index
+      
+      ##
       # Unformatted page title.
       
       attr_reader :title
@@ -47,6 +52,7 @@ module Google
       # Initialize with _hash_.
 
       def initialize hash
+        @index = hash['index']
         @title = hash['titleNoFormatting'] || hash['title']
         @uri = hash['url'] || hash['postUrl']
         @content = hash['contentNoFormatting'] || hash['content']

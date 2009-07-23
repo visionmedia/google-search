@@ -42,6 +42,7 @@ module Google
       # Initialize with _hash_.
       
       def initialize hash
+        @page = 0
         @hash = hash
         @status = hash['responseStatus']
         @details = hash['responseDetails']
@@ -51,8 +52,10 @@ module Google
             @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i
             @page = hash['responseData']['cursor']['currentPageIndex'].to_i 
           end
+          i = page
           @items = @hash['responseData']['results'].map do |result|
             item_class = Google::Search::Item.class_for result['GsearchResultClass']
+            result['index'] = i; i += 1
             item_class.new result
           end
         end
