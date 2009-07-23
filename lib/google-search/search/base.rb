@@ -138,7 +138,7 @@ module Google
     #:nodoc:
     
     def get_uri_params
-      raise Error, "invalid query `#{query}'" unless query.respond_to? :to_str
+      raise Error, "invalid query `#{query}'" unless query.respond_to?(:to_str) && !query.to_str.empty?
       raise Error, "invalid API version `#{version}'" unless Numeric === version
       [[:start, offset],
       [:rsz, size],

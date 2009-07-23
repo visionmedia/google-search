@@ -26,14 +26,20 @@ describe Google::Search do
       search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo&foo=bar'
     end
     
-    it "should raise an error when no query string is present" do
-      @search.query = nil
-      lambda { @search.get_uri }.should raise_error(Google::Search::Error, /query/)
+    describe "query" do
+      it "should raise an error when no query string is present" do
+        @search.query = nil
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /query/)
+        @search.query = ''
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /query/)
+      end
     end
     
-    it "should raise an error when version is not present" do
-      @search.version = nil
-      lambda { @search.get_uri }.should raise_error(Google::Search::Error, /version/)
+    describe "version" do
+      it "should raise an error when it is not present" do
+        @search.version = nil
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /version/)
+      end
     end
   end
   
@@ -90,7 +96,7 @@ describe Google::Search::Web do
   end
   
   describe "#get_uri" do
-    describe "#filter" do
+    describe "filter" do
       it "should default to 1" do
         @search.get_uri.should include('filter=1')
       end
