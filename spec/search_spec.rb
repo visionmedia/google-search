@@ -20,6 +20,16 @@ describe Google::Search do
     it "should return a uri" do
       @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo'
     end
+    
+    it "should raise an error when no query string is present" do
+      @search.query = nil
+      lambda { @search.get_uri }.should raise_error(Google::Search::Error, /query/)
+    end
+    
+    it "should raise an error when version is not present" do
+      @search.version = nil
+      lambda { @search.get_uri }.should raise_error(Google::Search::Error, /version/)
+    end
   end
   
   describe "#get_raw" do

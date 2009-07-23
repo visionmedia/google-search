@@ -10,6 +10,16 @@
 * Populates Google::Search::Item's blog, book, image, local, news, patent, video, and web
 * Full test coverage
 
+== Image example
+
+Below we simply create a new :image search, and pass a :query string.
+
+  File.open('path/to/images.html', 'w+') do |file|
+    Google::Search.new(:image, :query => 'Cookies').each do |image|
+      file.write %(<img src="#{image.uri}">)
+    end
+  end
+
 == Example Google::Search::Response
 
   response.length # => 4

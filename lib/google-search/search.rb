@@ -17,6 +17,12 @@ module Google
     
     URI = 'http://www.google.com/uds'
     
+    #--
+    # Exceptions
+    #++
+    
+    class Error < StandardError; end
+    
     ##
     # Version. Defaults to 1.0
     
@@ -119,13 +125,15 @@ module Google
     # Return uri.
     
     def get_uri
+      raise Error, 'query must be present' unless query.respond_to? :to_str
+      raise Error, 'API version must be present' unless Numeric === version
       URI + "/G#{@type}Search?" + [
         [:start, offset],
         [:rsz, size],
         [:hl, language],
         [:key, api_key],
         [:v, version],
-        [:q, query]
+        [:q, Search.url_encode(query.to_str)]
       ].map { |key, value| "#{key}=#{value}" }.join('&')
     end
     
@@ -180,6 +188,15 @@ module Google
     
     def self.json_decode string
       JSON.parse string
+    end
+    
+    ##
+    # Url encode _string_.
+    
+    def self.url_encode string
+      string.gsub(/([^ a-zA-Z0-9_.-]+)/n) {
+        '%' + $1.unpack('H2' * $1.size).join('%').upcase
+      }.tr(' ', '+')
     end
     
   end

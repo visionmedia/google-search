@@ -2,11 +2,10 @@
 $:.unshift File.dirname(__FILE__) + '/../lib'
 require 'rubygems'
 require 'google-search'
-require 'rext/all'
 
 def find_item uri, query
   search = Google::Search.new :web do |search|
-    search.query = query.url_encode
+    search.query = query
     search.size = :large
     search.each_response { print '.'; $stdout.flush }
   end
