@@ -4,10 +4,9 @@ require 'rubygems'
 require 'google-search'
 require 'rext/all'
 
-
 def find_item uri, query = nil
   @search = Google::Search.new(:web, :query => query.url_encode, :size => :large) if query
-  puts "... Searching for `%s'" % [@search.query.url_decode]
+  print '.'; $stdout.flush
   response = @search.next.response
   return unless response.valid?
   response.items.find do |item|
@@ -16,12 +15,16 @@ def find_item uri, query = nil
 end
 
 def find uri, query
+  print "%35s " % query
   if item = find_item(uri, query)
-    puts "... Result #%d" % (item.index + 1)
+    puts " #%d" % (item.index + 1)
   else
-    puts "... Not found"
+    puts " Not found"
   end
 end
 
-find /northstudio\.com/, 'Victoria Drupal'
-find /northstudio\.com/, 'Victoria Web Design'
+find /vision\-media\.ca/, 'Victoria Web Training'
+find /vision\-media\.ca/, 'Victoria Web School'
+find /vision\-media\.ca/, 'Victoria Web Design'
+find /vision\-media\.ca/, 'Victoria Drupal'
+find /vision\-media\.ca/, 'Victoria Drupal Development'
