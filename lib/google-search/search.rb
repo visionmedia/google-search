@@ -84,11 +84,11 @@ module Google
     end
     
     ##
-    # Return uri to more results.
+    # Prepare for next request.
     
-    def get_more_uri
+    def next
       @offset += size_for(size)
-      get_uri
+      self
     end
     
     ##
