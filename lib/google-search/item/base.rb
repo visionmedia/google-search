@@ -23,7 +23,7 @@ module Google
 
       def initialize hash
         @title = hash['titleNoFormatting']
-        @uri = hash['url']
+        @uri = hash['url'] || hash['postUrl']
         @content = hash['content']
       end
       
