@@ -5,45 +5,46 @@ module Google
       class Video < self
         
         ##
-        # Unformatted page title.
+        # Rating float.
         
-        attr_reader :title
-        
-        ##
-        # Absolute uri.
-        
-        attr_reader :uri
+        attr_reader :rating
         
         ##
-        # Cached uri.
+        # Video type.
         
-        attr_reader :cache_uri
-        
-        ##
-        # Visible uri.
-        
-        attr_reader :visible_uri
+        attr_reader :type
         
         ##
-        # Unescaped uri.
+        # Publisher.
         
-        attr_reader :unescaped_uri
+        attr_reader :publisher
         
         ##
-        # Contents.
+        # Published DateTime.
         
-        attr_reader :contents
+        attr_reader :published
+        
+        ##
+        # Thumbnail image uri.
+        
+        attr_reader :thumbnail_uri
+        
+        ##
+        # Duration in seconds.
+        
+        attr_reader :duration
         
         ##
         # Initialize with _hash_.
 
         def initialize hash
-          @title = hash['title']
-          @uri = hash['url']
-          @cache_uri = hash['cacheUrl']
-          @visible_uri = hash['visibleUrl']
-          @unescaped_uri = hash['unescapedUrl']
-          @contents = hash['content']
+          super
+          @rating = hash['rating'].to_f
+          @type = hash['videoType']
+          @publisher = hash['publisher']
+          @published = DateTime.parse hash['published']
+          @thumbnail_uri = hash['tbUrl']
+          @duration = hash['duration'].to_i
         end
       end
     end
