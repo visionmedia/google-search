@@ -4,6 +4,30 @@ module Google
     class Item
       
       ##
+      # Unformatted page title.
+      
+      attr_reader :title
+      
+      ##
+      # Absolute uri.
+      
+      attr_reader :uri
+      
+      ##
+      # Contents.
+      
+      attr_reader :content
+      
+      ##
+      # Initialize with _hash_.
+
+      def initialize hash
+        @title = hash['title']
+        @uri = hash['url']
+        @content = hash['content']
+      end
+      
+      ##
       # Return class for _google_class_ string formatted
       # as 'GwebSearch', 'GbookSearch', etc.
       
