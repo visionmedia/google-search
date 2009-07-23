@@ -1,7 +1,13 @@
 
 = Google Search
 
-* Coming Soon
+Fast, feature rich Google Search client. Search web results, images,
+books, local, patents, blogs and news using an elegant Ruby API with
+only a single dependency.
+
+== Dependencies 
+
+* json gem
 
 == Features
 
@@ -13,6 +19,8 @@
 == Image example
 
 Below we simply create a new :image search, and pass a :query string.
+Query strings are urlencoded when Search#get_uri is called, so there
+is no reason to do so manually.
 
   File.open('path/to/images.html', 'w+') do |file|
     Google::Search.new(:image, :query => 'Cookies').each do |image|
