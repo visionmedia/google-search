@@ -38,7 +38,7 @@ module Google
     attr_accessor :api_key
     
     ##
-    # Size. Defaults to :small
+    # Size. Defaults to :large
     #
     #  - :small = 4
     #  - :large = 8
@@ -68,7 +68,7 @@ module Google
       @type = type
       @version = options[:version] || 1.0
       @offset = options[:offset] || 0
-      @size = options[:size] || :small
+      @size = options[:size] || :large
       @language = options[:language] || :en
       @query = options[:query]
       @api_key = options[:api_key] || :notsupplied
