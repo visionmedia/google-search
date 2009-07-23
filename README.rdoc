@@ -5,12 +5,8 @@
 
 == Todo
 
-* Fixtures
 * local?
-* Item per type ... Item::Video, Item::Web etc
-* API for mapping hash to attributes
 * response.estimated_count
-* Add Google::Search.json_decode
 * response.get_more # => Response 
 * start ? make sure paging works
 * response.status
