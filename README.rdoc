@@ -5,7 +5,6 @@
 
 == Todo
 
-* response.estimated_count
 * response.get_more # => Response 
 * start ? make sure paging works
 * response.status
@@ -92,13 +91,6 @@ For reference below is a raw hash of a parsed JSON web response from Google:
          {"start"=>"20", "label"=>6},
          {"start"=>"24", "label"=>7},
          {"start"=>"28", "label"=>8}]}},
-   "responseStatus"=>200,
-   "responseDetails"=>nil}
-  {"responseData"=>
-    {"results"=>[],
-     "cursor"=>
-      {"moreResultsUrl"=>
-        "http://www.google.com/search?oe=utf8&ie=utf8&source=uds&start=0&hl=en&q"}},
    "responseStatus"=>200,
    "responseDetails"=>nil}
 

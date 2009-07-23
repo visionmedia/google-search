@@ -18,15 +18,17 @@ describe Google::Search::Response do
     end
   end
   
-  describe "#items" do
-    it "should be an array of items" do
+  describe "#initialize" do
+    it "should set #items" do
       @response.items.first.should be_a(Google::Search::Item)
     end
-  end
-  
-  describe "#estimated_count" do
-    it "should be set" do
+    
+    it "should set #estimated_count" do
       @response.estimated_count.should == 33400000
+    end
+    
+    it "should set #page" do
+      @response.page.should == 0
     end
   end
 end

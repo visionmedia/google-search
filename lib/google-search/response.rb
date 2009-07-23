@@ -34,6 +34,11 @@ module Google
       attr_reader :estimated_count
       
       ##
+      # Current page index.
+      
+      attr_reader :page
+      
+      ##
       # Initialize with _hash_.
       
       def initialize hash
@@ -41,6 +46,7 @@ module Google
         @status = hash['responseStatus']
         @details = hash['responseDetails']
         @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i rescue 0
+        @page = hash['responseData']['cursor']['currentPageIndex'].to_i rescue 0
         @items = []
         if valid?
           @items = @hash['responseData']['results'].map do |result|
