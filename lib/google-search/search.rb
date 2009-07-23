@@ -72,9 +72,11 @@ module Google
     attr_accessor :type
     
     ##
-    # Initialize search _type_ with _options_.
+    # Initialize search _type_ with _options_. Optionally
+    # a block may be passed, and the Search instance will 
+    # be yielded to it.
     
-    def initialize type, options = {}
+    def initialize type, options = {}, &block
       @type = type
       @version = options[:version] || 1.0
       @offset = options[:offset] || 0
@@ -82,6 +84,7 @@ module Google
       @language = options[:language] || :en
       @query = options[:query]
       @api_key = options[:api_key] || :notsupplied
+      yield self if block
     end
     
     ##

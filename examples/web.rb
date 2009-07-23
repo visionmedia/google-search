@@ -4,23 +4,26 @@ require 'rubygems'
 require 'google-search'
 require 'rext/all'
 
-def find_item uri, query = nil
-  @search = Google::Search.new(:web, :query => query.url_encode, :size => :large) if query
-  @search.each_response { print '.'; $stdout.flush }
-  @search.find { |item| item.uri =~ uri }
+def find_item uri, query
+  search = Google::Search.new :web do |search|
+    search.query = query.url_encode
+    search.size = :large
+    search.each_response { print '.'; $stdout.flush }
+  end
+  search.find { |item| item.uri =~ uri }
 end
 
-def find uri, query
+def rank_for query
   print "%35s " % query
-  if item = find_item(uri, query)
+  if item = find_item(/vision\-media\.ca/, query)
     puts " #%d" % (item.index + 1)
   else
     puts " Not found"
   end
 end
 
-find /vision\-media\.ca/, 'Victoria Web Training'
-find /vision\-media\.ca/, 'Victoria Web School'
-find /vision\-media\.ca/, 'Victoria Web Design'
-find /vision\-media\.ca/, 'Victoria Drupal'
-find /vision\-media\.ca/, 'Victoria Drupal Development'
+rank_for 'Victoria Web Training'
+rank_for 'Victoria Web School'
+rank_for 'Victoria Web Design'
+rank_for 'Victoria Drupal'
+rank_for 'Victoria Drupal Development'
