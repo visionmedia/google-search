@@ -3,6 +3,13 @@
 
 * Coming Soon
 
+== Features
+
+* Fast
+* Lazy Enumeration (requests more results from google, not all at once)
+* Populates Google::Search::Item's blog, book, image, local, news, patent, video, and web
+* Full test coverage
+
 == Example Google::Search::Response
 
   response.length # => 4
