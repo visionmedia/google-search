@@ -29,6 +29,16 @@ module Google
       attr_reader :thumbnail_uri
       
       ##
+      # Thumbnail width in pixels.
+      
+      attr_reader :thumbnail_width
+      
+      ##
+      # Thumbnail height in pixels.
+      
+      attr_reader :thumbnail_height
+      
+      ##
       # Contents.
       
       attr_reader :content
@@ -42,6 +52,8 @@ module Google
         @content = hash['contentNoFormatting'] || hash['content']
         @unescaped_uri = hash['unescapedUrl']
         @thumbnail_uri = hash['tbUrl']
+        @thumbnail_width = hash['tbWidth'].to_i
+        @thumbnail_height = hash['tbHeight'].to_i
         @visible_uri = hash['visibleUrl']
       end
       
