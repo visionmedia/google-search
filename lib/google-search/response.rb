@@ -37,10 +37,9 @@ module Google
         @details = hash['responseDetails']
         @items = []
         if valid?
-          # TODO const_get ? ... type.capitalize
           @items = @hash['responseData']['results'].map do |result|
-            klass = Google::Search::Item.class_for result['GsearchResultClass']
-            Google::Search::Item.new result
+            item_class = Google::Search::Item.class_for result['GsearchResultClass']
+            item_class.new result
           end
         end
       end
