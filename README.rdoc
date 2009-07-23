@@ -5,7 +5,6 @@
 
 == Todo
 
-* local?
 * response.estimated_count
 * response.get_more # => Response 
 * start ? make sure paging works

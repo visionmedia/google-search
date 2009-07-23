@@ -29,12 +29,18 @@ module Google
       attr_reader :items
       
       ##
+      # Estimated number of results.
+      
+      attr_reader :estimated_count
+      
+      ##
       # Initialize with _hash_.
       
       def initialize hash
         @hash = hash
         @status = hash['responseStatus']
         @details = hash['responseDetails']
+        @estimated_count = hash['responseData']['cursor']['estimatedResultCount'].to_i rescue 0
         @items = []
         if valid?
           @items = @hash['responseData']['results'].map do |result|
