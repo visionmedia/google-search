@@ -28,7 +28,6 @@ describe Google::Search::Item::Video do
   describe "#initialize" do
     it "should populate attributes" do
       hash = json_fixture('video-response')['responseData']['results'].first
-      pp hash
       item = Google::Search::Item::Video.new hash
       item.title.should include('Foo Fighters')
       item.content.should include('Foo Fighters')

@@ -35,7 +35,7 @@
 
 == Example Hash Response
 
-Below is the raw JSON object response provided by Google:
+For reference below is a raw hash of a parsed JSON web response from Google:
 
   {"responseData"=>
     {"results"=>
