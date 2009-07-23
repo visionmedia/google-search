@@ -75,6 +75,27 @@ module Google
     end
     
     ##
+    # Find an item by _block_.
+    #
+    # Recursively requests new items until
+    # an item is found or the offset range has 
+    # been reached (Google only allows a certain number of pages).
+    #
+    # === Examples
+    #    
+    #   search = Google:Search.new :web, :query => 'Awesome'
+    #   search.find do |item|
+    #     item.title == 'tj'
+    #   end
+    #
+    
+    def find &block
+      response = self.next.response
+      return unless response.valid?
+      response.items.find(&block) || find(&block)
+    end
+    
+    ##
     # Return uri.
     
     def get_uri

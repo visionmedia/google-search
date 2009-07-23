@@ -43,6 +43,17 @@ describe Google::Search do
     end
   end
   
+  describe "#find" do
+    it "should recurse until range has been reached, or the item has been found" do
+      @search.find do |item|
+        item.title == 'Foo Fighters Postboard - Powered by vBulletin'
+      end.should be_a(Google::Search::Item)
+      @search.find do |item|
+        item.title == 'RAWR'
+      end.should be_nil
+    end
+  end
+  
   describe "#next" do
     it "should prepare offset" do
       @search.size = :small
