@@ -1,7 +1,4 @@
 
-require 'json'
-require 'open-uri'
-
 module Google
   class Search
     

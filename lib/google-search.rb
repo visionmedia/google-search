@@ -21,6 +21,8 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #++
 
+require 'json'
+require 'open-uri'
 require 'google-search/version'
 require 'google-search/item'
 require 'google-search/response'
