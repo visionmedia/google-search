@@ -53,4 +53,10 @@ describe Google::Search do
       @search.next.offset.should == 16
     end
   end
+  
+  describe "#response" do
+    it "should alias #get_response" do
+      @search.next.response.should be_a(Google::Search::Response)
+    end
+  end
 end

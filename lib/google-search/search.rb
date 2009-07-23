@@ -123,6 +123,7 @@ module Google
       response.raw = raw
       response
     end
+    alias :response :get_response
     
     ##
     # Decode JSON _string_.
