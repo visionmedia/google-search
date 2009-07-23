@@ -6,6 +6,10 @@ describe Google::Search do
     @search = Google::Search.new :web, :query => 'foo'
   end
   
+  it "should be enumerable" do
+    @search.to_a.first.should be_a(Google::Search::Item)
+  end
+  
   describe "#initialize" do
     it "should accept the type of search" do
       @search.type.should == :web
@@ -40,17 +44,6 @@ describe Google::Search do
     it "should populate #raw" do
       @search.stub!(:get_raw).and_return fixture('web-response.json')
       @search.get_response.raw.should be_a(String)
-    end
-  end
-  
-  describe "#find" do
-    it "should recurse until range has been reached, or the item has been found" do
-      @search.find do |item|
-        item.title == 'Foo Fighters Postboard - Powered by vBulletin'
-      end.should be_a(Google::Search::Item)
-      @search.find do |item|
-        item.title == 'RAWR'
-      end.should be_nil
     end
   end
   

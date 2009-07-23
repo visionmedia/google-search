@@ -5,6 +5,16 @@ require 'open-uri'
 module Google
   class Search
     
+    #--
+    # Mixins
+    #++
+    
+    include Enumerable
+    
+    #--
+    # Constants
+    #++
+    
     URI = 'http://www.google.com/uds'
     
     ##
@@ -75,25 +85,16 @@ module Google
     end
     
     ##
-    # Find an item by _block_.
-    #
-    # Recursively requests new items until
-    # an item is found or the offset range has 
-    # been reached (Google only allows a certain number of pages).
-    #
-    # === Examples
-    #    
-    #   search = Google:Search.new :web, :query => 'Awesome'
-    #   search.find do |item|
-    #     item.title == 'tj'
-    #   end
-    #
+    # Iterate each item with _block_.
     
-    def find &block
+    def each_item &block
       response = self.next.response
-      return unless response.valid?
-      response.items.find(&block) || find(&block)
+      if response.valid?
+        response.items.each { |item| yield item }
+        each_item &block
+      end
     end
+    alias :each :each_item
     
     ##
     # Return uri.
