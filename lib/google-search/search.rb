@@ -91,6 +91,9 @@ module Google
       get_uri
     end
     
+    ##
+    # Return int for size _sym_.
+    
     def size_for sym
       { :small => 4,
         :large => 8 }[sym]
