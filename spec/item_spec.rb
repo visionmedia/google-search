@@ -141,7 +141,6 @@ describe Google::Search::Item::Image do
   describe "#initialize" do
     it "should populate attributes" do
       hash = json_fixture('image-response')['responseData']['results'].first
-      pp hash
       item = Google::Search::Item::Image.new hash
       item.id.should == 'IYlLzX-w4vX2AM'
       item.title.should == 'foo_fighters.jpg'
