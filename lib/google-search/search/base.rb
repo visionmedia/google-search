@@ -132,14 +132,20 @@ module Google
     def get_uri
       raise Error, 'query must be present' unless query.respond_to? :to_str
       raise Error, 'API version must be present' unless Numeric === version
-      URI + "/G#{@type}Search?" + ([
-        [:start, offset],
-        [:rsz, size],
-        [:hl, language],
-        [:key, api_key],
-        [:v, version],
-        [:q, Search.url_encode(query.to_str)]
-      ] + options.to_a).map { |key, value| "#{key}=#{value}" }.join('&')
+      URI + "/G#{@type}Search?" + 
+        (get_uri_params + options.to_a).
+          map { |key, value| "#{key}=#{value}" unless value.nil? }.join('&')
+    end
+    
+    #:nodoc:
+    
+    def get_uri_params
+      [[:start, offset],
+      [:rsz, size],
+      [:hl, language],
+      [:key, api_key],
+      [:v, version],
+      [:q, Search.url_encode(query.to_str)]]
     end
     
     ##

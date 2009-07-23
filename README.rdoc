@@ -5,6 +5,12 @@ Fast, feature rich Google Search client. Search web results, images,
 books, local, patents, blogs and news using an elegant Ruby API with
 only a single dependency.
 
+== Todo:
+
+* Support all current arguments 
+* Generate / view rdoc
+* Promote
+
 == Dependencies 
 
 * json gem
@@ -19,7 +25,7 @@ only a single dependency.
 
 == Classes
 
-  - Google::Search                  | manages the query, and persitant results. Is Enumerable
+  - Google::Search                  | superclass of all other search classes. Is Enumerable
   - Google::Search::Response        | single request response, containing items. Is Enumerable
   - Google::Search::Item            | single item, superclass of all other items.
   - Google::Search::Item::Web       | single item containing web specific data.
