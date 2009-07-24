@@ -1,4 +1,5 @@
 
+require 'google-search/search/mixins'
 require 'google-search/search/base'
 require 'google-search/search/web'
 require 'google-search/search/blog'

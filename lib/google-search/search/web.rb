@@ -39,7 +39,7 @@ module Google
         raise Error, "invalid safety level `#{safety_level}'" unless safety_level.nil? || SAFETY_LEVELS.include?(safety_level)
         super + [
           [:safe, safety_level],
-          [ :filter, filter ? 1 : 0]]
+          [:filter, filter ? 1 : 0]]
       end
     end
   end

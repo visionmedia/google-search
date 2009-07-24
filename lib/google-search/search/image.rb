@@ -88,11 +88,11 @@ module Google
         raise Error, "invalid image type `#{type}'" unless TYPES.include? type
         super + [
           [:safe, safety_level],
-          [ :imgsz, size],
-          [ :imgcolor, color],
-          [ :imgtype, type],
-          [ :as_filetype, file_type],
-          [ :as_sitesearch, ui]
+          [:imgsz, size],
+          [:imgcolor, color],
+          [:imgtype, type],
+          [:as_filetype, file_type],
+          [:as_sitesearch, ui]
           ]
       end
     end

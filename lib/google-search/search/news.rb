@@ -4,22 +4,18 @@ module Google
     class News < self
       
       #--
+      # Mixins
+      #++
+      
+      include OrderBy
+      
+      #--
       # Constants
       #++
       
-      ORDER_BY = :relevance, :date
       TOPICS = :headlines, :world, :business, :nation, :science, 
                :elections, :politics, :entertainment, :sports, :health
-      
-      ##
-      # Order by. Defaults to :relevance
-      #
-      #  - :relevance
-      #  - :date
-      #
-      
-      attr_reader :order_by
-      
+
       ##
       # Relative to city, state, province,
       # zipcode, etc.
@@ -51,7 +47,6 @@ module Google
       #:nodoc:
       
       def initialize options = {}, &block
-        @order_by = options.delete :order_by
         @relative_to = options.delete :relative_to
         @edition = options.delete :edition
         super :news, options, &block
@@ -60,10 +55,8 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        raise Error, "invalid order `#{order_by}'" unless order_by.nil? || ORDER_BY.include?(order_by)
         raise Error, "invalid topic `#{topic}'" unless topic.nil? || TOPICS.include?(topic)
         super + [
-          [:scoring, order_by ? 'd' : nil],
           [:geo, relative_to],
           [:topic, topic],
           [:ned, edition]
