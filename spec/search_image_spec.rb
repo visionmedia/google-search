@@ -7,6 +7,24 @@ describe Google::Search::Image do
   end
   
   describe "#get_uri" do
+    describe "safety_level" do
+      it "should validate" do
+        @search.safety_level = :active
+        @search.get_uri.should include('safe=active')
+        @search.safety_level = :foo
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /safety_level/)
+      end
+      
+      it "should provide alternative naming :medium, :high" do
+        @search.safety_level = :off
+        @search.get_uri.should include('safe=off')
+        @search.safety_level = :medium
+        @search.get_uri.should include('safe=moderate')
+        @search.safety_level = :high
+        @search.get_uri.should include('safe=active')
+      end
+    end
+    
     describe "image_size" do
       it "should validate" do
         @search.image_size = :icon
