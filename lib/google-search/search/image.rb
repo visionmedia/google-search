@@ -4,23 +4,18 @@ module Google
     class Image < self
       
       #--
+      # Mixins
+      #++
+      
+      include SafetyLevel
+      
+      #--
       # Constants
       #++
       
-      SAFETY_LEVELS = :active, :moderate, :off
       SIZES = :icon, :small, :medium, :large, :xlarge, :xxlarge, :huge
       TYPES = :face, :photo, :clipart, :lineart
       EXTENSIONS = :jpg, :png, :gif, :bmp
-      
-      ##
-      # Safety level:
-      #
-      #   - :active
-      #   - :moderate
-      #   - :off
-      #
-      
-      attr_accessor :safety_level
       
       ##
       # Image size:
@@ -71,7 +66,6 @@ module Google
       #:nodoc:
       
       def initialize options = {}, &block
-        @safe = options.delete :safety_level
         @size = options.delete :size
         @color = options.delete :color
         @type = options.delete :type
@@ -82,7 +76,6 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        raise Error, "invalid safety level `#{safety_level}'" unless safety_level.nil? || SAFETY_LEVELS.include?(safety_level)
         raise Error, "invalid image size `#{size}'" unless SIZES.include? size
         raise Error, "invalid file type `#{file_type}'" unless EXTENSIONS.include? file_type
         raise Error, "invalid image type `#{type}'" unless TYPES.include? type
