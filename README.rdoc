@@ -64,6 +64,10 @@ is no reason to do so manually.
       file.write %(<img src="#{image.uri}">)
     end
   end
+  
+== More Information
+
+* View the source :) 
 
 == License:
 
