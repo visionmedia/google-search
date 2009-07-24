@@ -40,7 +40,7 @@ module Google
       #  - :lineart
       #
       
-      attr_accessor :type
+      attr_accessor :image_type
       
       ##
       # File type:
@@ -68,7 +68,7 @@ module Google
       def initialize options = {}, &block
         @size = options.delete :size
         @color = options.delete :color
-        @type = options.delete :type
+        @image_type = options.delete :image_type
         @file_type = options.delete :file_type
         super
       end
@@ -76,16 +76,16 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        validate(:size) { |size| SIZES.include? size }
-        validate(:type) { |type| TYPES.include? type }
-        validate(:file_type) { |ext| EXTENSIONS.include? ext }
+        validate(:size) { |size| size.nil? || SIZES.include?(size) }
+        validate(:image_type) { |type| type.nil? || TYPES.include?(type) }
+        validate(:file_type) { |ext| ext.nil? || EXTENSIONS.include?(ext) }
         super + [
           [:safe, safety_level],
           [:imgsz, size],
           [:imgcolor, color],
-          [:imgtype, type],
+          [:imgtype, image_type],
           [:as_filetype, file_type],
-          [:as_sitesearch, ui]
+          [:as_sitesearch, uri]
           ]
       end
     end

@@ -189,7 +189,7 @@ module Google
     
     def validate meth, &block
       value = send meth
-      raise Error, "invalid #{meth} `#{value}'" unless yield value
+      raise Error, "invalid #{type} #{meth} #{value.inspect}", caller unless yield value
     end
     
     ##
