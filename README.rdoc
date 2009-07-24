@@ -7,6 +7,8 @@ only a single dependency.
 
 == Todo:
 
+* Mixins for arguments / validation ... refactor consts etc
+* add validate method since they are similar
 * Support all current arguments 
 * Generate / view rdoc
 * Promote
