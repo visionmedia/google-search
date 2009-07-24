@@ -13,11 +13,21 @@ describe Google::Search::News do
         @search.get_uri.should_not include('geo=Edmonton%20Alberta')
       end
     end
+    
+    describe "topic" do
+      it "should validate" do
+        @search.topic = :world
+        @search.get_uri.should include('topic=world')
+        @search.topic = :foo
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /topic/)
+      end
+    end
+    
+    describe "edition" do
+      it "should set edition" do
+        @search.edition = :en
+        @search.get_uri.should include('ned=en')
+      end
+    end
   end
 end
-
-__END__
-
-       [:geo, relative_to],
-        [:topic, topic],
-        [:ned, edition]
