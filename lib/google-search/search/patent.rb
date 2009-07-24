@@ -15,13 +15,13 @@ module Google
       # otherwise when false only filed but NOT
       # issued patents will be returned.
       
-      attr_reader :issued_only
+      attr_accessor :issued_only
       
       #:nodoc:
       
       def initialize options = {}, &block
         @issued_only = options.delete :issued_only
-        super :patent, options, &block
+        super
       end
       
       #:nodoc:

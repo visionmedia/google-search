@@ -20,7 +20,7 @@ module Google
       # Relative to city, state, province,
       # zipcode, etc.
       
-      attr_reader :relative_to
+      attr_accessor :relative_to
       
       ##
       # Topic:
@@ -37,19 +37,19 @@ module Google
       #  - :health
       #
       
-      attr_reader :topic
+      attr_accessor :topic
       
       ##
       # Edition, such as :us, :uk, :fr_ca, etc.
       
-      attr_reader :edition
+      attr_accessor :edition
       
       #:nodoc:
       
       def initialize options = {}, &block
         @relative_to = options.delete :relative_to
         @edition = options.delete :edition
-        super :news, options, &block
+        super
       end
       
       #:nodoc:

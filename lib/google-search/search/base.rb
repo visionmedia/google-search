@@ -26,6 +26,11 @@ module Google
     attr_accessor :version
     
     ##
+    # Search type symbol.
+    
+    attr_accessor :type
+    
+    ##
     # Offset. Defaults to 0
     
     attr_accessor :offset
@@ -60,21 +65,6 @@ module Google
     attr_accessor :size
     
     ##
-    # Type symbol:
-    #
-    #   - :local
-    #   - :web
-    #   - :video
-    #   - :blog
-    #   - :news
-    #   - :image
-    #   - :book
-    #   - :patent
-    #
-    
-    attr_accessor :type
-    
-    ##
     # Additional options. All those listed above
     # are deleted. The remaining represent query
     # string key / value pairs.
@@ -86,8 +76,8 @@ module Google
     # a block may be passed, and the Search instance will 
     # be yielded to it.
     
-    def initialize type, options = {}, &block
-      @type = type
+    def initialize options = {}, &block
+      @type = self.class.to_s.split('::').last.downcase.to_sym
       @version = options.delete(:version) || 1.0
       @offset = options.delete(:offset) || 0
       @size = options.delete(:size) || :large
@@ -95,6 +85,7 @@ module Google
       @query = options.delete(:query)
       @api_key = options.delete(:api_key) || :notsupplied
       @options = options
+      raise Error, 'Do not initialize Google::Search; Use a subclass such as Google::Search::Web' if @type == :search
       yield self if block
     end
     
@@ -132,7 +123,7 @@ module Google
     def get_uri
       URI + "/G#{@type}Search?" + 
         (get_uri_params + options.to_a).
-          map { |key, value| "#{key}=#{value}" unless value.nil? }.join('&')
+          map { |key, value| "#{key}=#{value}" unless value.nil? }.compact.join('&')
     end
     
     #:nodoc:

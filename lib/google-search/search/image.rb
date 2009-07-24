@@ -76,7 +76,7 @@ module Google
         @color = options.delete :color
         @type = options.delete :type
         @file_type = options.delete :file_type
-        super :image, options, &block
+        super
       end
       
       #:nodoc:

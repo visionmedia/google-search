@@ -8,11 +8,8 @@ module Google
       #++
       
       include OrderBy
-      #:nodoc:
-      
-      def initialize options = {}, &block
-        super :video, options, &block
-      end
+      include Filter
+
     end
   end
 end

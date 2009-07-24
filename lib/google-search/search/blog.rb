@@ -8,12 +8,7 @@ module Google
       #++
       
       include OrderBy
-      
-      #:nodoc:
-      
-      def initialize options = {}, &block
-        super :blog, options, &block
-      end
+
     end
   end
 end

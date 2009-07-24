@@ -3,27 +3,25 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe Google::Search do
   before :each do
-    @search = Google::Search.new :web, :query => 'foo'
+    @search = Google::Search::Web.new :query => 'foo'
+  end
+  
+  it "should throw an error when trying to initialize the base class" do
+    lambda { Google::Search.new :query => 'foo' }.should raise_error(Google::Search::Error)
   end
   
   it "should be enumerable" do
     @search.to_a.first.should be_a(Google::Search::Item)
   end
   
-  describe "#initialize" do
-    it "should accept the type of search" do
-      @search.type.should == :web
-    end
-  end
-  
   describe "#get_uri" do
     it "should return a uri" do
-      @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo'
+      @search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo&filter=1'
     end
     
     it "should allow arbitrary key/value pairs" do
-      search = Google::Search.new :web, :query => 'foo', :foo => 'bar'
-      search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo&foo=bar'
+      search = Google::Search::Web.new :query => 'foo', :foo => 'bar'
+      search.get_uri.should == 'http://www.google.com/uds/GwebSearch?start=0&rsz=large&hl=en&key=notsupplied&v=1.0&q=foo&filter=1&foo=bar'
     end
     
     describe "query" do

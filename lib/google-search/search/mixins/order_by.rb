@@ -16,12 +16,13 @@ module Google
       #  - :date
       #
 
-      attr_reader :order_by
+      attr_accessor :order_by
 
       #:nodoc:
 
       def initialize options = {}, &block
         @order_by = options.delete :order_by
+        super
       end
 
       #:nodoc:

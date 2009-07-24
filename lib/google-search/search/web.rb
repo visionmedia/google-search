@@ -4,6 +4,12 @@ module Google
     class Web < self
       
       #--
+      # Mixins
+      #++
+      
+      include Filter
+      
+      #--
       # Constants
       #++
       
@@ -19,27 +25,18 @@ module Google
       
       attr_accessor :safety_level
       
-      ##
-      # Weither or not to filter duplicate results.
-      # Defaults to true.
-      
-      attr_accessor :filter
-      
       #:nodoc:
       
       def initialize options = {}, &block
         @safe = options.delete :safety_level
-        @filter = options.delete(:filter) || 1
-        super :web, options, &block
+        super
       end
       
       #:nodoc:
       
       def get_uri_params
         raise Error, "invalid safety level `#{safety_level}'" unless safety_level.nil? || SAFETY_LEVELS.include?(safety_level)
-        super + [
-          [:safe, safety_level],
-          [:filter, filter ? 1 : 0]]
+        super + [[:safe, safety_level]]
       end
     end
   end
