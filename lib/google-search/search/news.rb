@@ -17,8 +17,7 @@ module Google
                :elections, :politics, :entertainment, :sports, :health
 
       ##
-      # Relative to city, state, province,
-      # zipcode, etc.
+      # Relative to city, state, province, zipcode, etc.
       
       attr_accessor :relative_to
       
@@ -55,7 +54,7 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        raise Error, "invalid topic `#{topic}'" unless topic.nil? || TOPICS.include?(topic)
+        validate(:topic) { |topic| topic.nil? || TOPICS.include?(topic) }
         super + [
           [:geo, relative_to],
           [:topic, topic],

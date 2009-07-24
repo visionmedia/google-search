@@ -123,7 +123,7 @@ module Google
     def get_uri
       URI + "/G#{@type}Search?" + 
         (get_uri_params + options.to_a).
-          map { |key, value| "#{key}=#{value}" unless value.nil? }.compact.join('&')
+          map { |key, value| "#{key}=#{Search.url_encode(value)}" unless value.nil? }.compact.join('&')
     end
     
     #:nodoc:
@@ -136,7 +136,7 @@ module Google
       [:hl, language],
       [:key, api_key],
       [:v, version],
-      [:q, Search.url_encode(query.to_str)]]
+      [:q, query]]
     end
     
     ##
@@ -203,7 +203,7 @@ module Google
     # Url encode _string_.
     
     def self.url_encode string
-      string.gsub(/([^ a-zA-Z0-9_.-]+)/n) {
+      string.to_s.gsub(/([^ a-zA-Z0-9_.-]+)/n) {
         '%' + $1.unpack('H2' * $1.size).join('%').upcase
       }.tr(' ', '+')
     end

@@ -7,18 +7,6 @@ describe Google::Search::Patent do
   end
   
   describe "#get_uri" do
-    describe "order_by" do
-      it "should validate" do
-        @search.order_by = :date
-        lambda { @search.get_uri }.should_not raise_error
-      end
-      
-      it "should raise an error when invalid" do
-        @search.order_by = :foo
-        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /order/)
-      end
-    end
-    
     describe "issued_only" do
       it "should return issued and filed by default" do
         @search.get_uri.should_not include('as_psrg')
