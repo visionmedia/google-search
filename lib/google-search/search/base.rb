@@ -129,8 +129,8 @@ module Google
     #:nodoc:
     
     def get_uri_params
-      raise Error, "invalid query `#{query}'" unless query.respond_to?(:to_str) && !query.to_str.empty?
-      raise Error, "invalid API version `#{version}'" unless Numeric === version
+      validate(:query) { |query| query.respond_to?(:to_str) && !query.to_str.empty? }
+      validate(:version) { |version| Numeric === version }
       [[:start, offset],
       [:rsz, size],
       [:hl, language],
@@ -183,6 +183,13 @@ module Google
     def self.size_for sym
       { :small => 4,
         :large => 8 }[sym]
+    end
+    
+    #:nodoc:
+    
+    def validate meth, &block
+      value = send meth
+      raise Error, "invalid #{meth} `#{value}'" unless yield value
     end
     
     ##

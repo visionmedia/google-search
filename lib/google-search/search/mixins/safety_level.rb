@@ -29,7 +29,7 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        raise Error, "invalid safety level `#{safety_level}'" unless safety_level.nil? || SAFETY_LEVELS.include?(safety_level)
+        validate(:safety_level) { |level| level.nil? || SAFETY_LEVELS.include?(level) }
         super + [[:safe, safety_level]]
       end
     end

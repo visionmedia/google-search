@@ -28,7 +28,7 @@ module Google
       #:nodoc:
 
       def get_uri_params
-        raise Error, "invalid order `#{order_by}'" unless order_by.nil? || ORDER_BY.include?(order_by)
+        validate(:order_by) { |order| order.nil? || ORDER_BY.include?(order) }
         super + [[:scoring, order_by ? 'd' : nil]]
       end
     end

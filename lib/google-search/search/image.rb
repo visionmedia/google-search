@@ -76,9 +76,9 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        raise Error, "invalid image size `#{size}'" unless SIZES.include? size
-        raise Error, "invalid file type `#{file_type}'" unless EXTENSIONS.include? file_type
-        raise Error, "invalid image type `#{type}'" unless TYPES.include? type
+        validate(:size) { |size| SIZES.include? size }
+        validate(:type) { |type| TYPES.include? type }
+        validate(:file_type) { |ext| EXTENSIONS.include? ext }
         super + [
           [:safe, safety_level],
           [:imgsz, size],
