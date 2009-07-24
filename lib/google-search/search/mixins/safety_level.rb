@@ -29,6 +29,7 @@ module Google
       #:nodoc:
       
       def get_uri_params
+        @safety_level = :off if @safety_level == :none
         @safety_level = :moderate if @safety_level == :medium
         @safety_level = :active if @safety_level == :high
         validate(:safety_level) { |level| level.nil? || SAFETY_LEVELS.include?(level) }

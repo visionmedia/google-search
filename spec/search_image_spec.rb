@@ -15,8 +15,8 @@ describe Google::Search::Image do
         lambda { @search.get_uri }.should raise_error(Google::Search::Error, /safety_level/)
       end
       
-      it "should provide alternative naming :medium, :high" do
-        @search.safety_level = :off
+      it "should provide alternative naming :none, :medium, :high" do
+        @search.safety_level = :none
         @search.get_uri.should include('safe=off')
         @search.safety_level = :medium
         @search.get_uri.should include('safe=moderate')
