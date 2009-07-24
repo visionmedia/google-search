@@ -4,7 +4,7 @@ require 'rubygems'
 require 'google-search'
 
 def find_item uri, query
-  search = Google::Search.new :web do |search|
+  search = Google::Search::Web.new do |search|
     search.query = query
     search.size = :large
     search.each_response { print '.'; $stdout.flush }
