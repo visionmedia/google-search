@@ -29,7 +29,7 @@ module Google
       #  - :huge
       #
       
-      attr_accessor :size
+      attr_accessor :image_size
       
       ##
       # Image type:
@@ -76,12 +76,12 @@ module Google
       #:nodoc:
       
       def get_uri_params
-        validate(:size) { |size| size.nil? || SIZES.include?(size) }
+        validate(:image_size) { |size| size.nil? || size.is_a?(Array) || SIZES.include?(size) }
         validate(:image_type) { |type| type.nil? || TYPES.include?(type) }
         validate(:file_type) { |ext| ext.nil? || EXTENSIONS.include?(ext) }
         super + [
           [:safe, safety_level],
-          [:imgsz, size],
+          [:imgsz, image_size.is_a?(Array) ? image_size.join('|') : image_size],
           [:imgcolor, color],
           [:imgtype, image_type],
           [:as_filetype, file_type],

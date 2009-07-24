@@ -7,12 +7,14 @@ describe Google::Search::Image do
   end
   
   describe "#get_uri" do
-    describe "size" do
+    describe "image_size" do
       it "should validate" do
-        @search.size = :icon
+        @search.image_size = :icon
         @search.get_uri.should include('imgsz=icon')
-        @search.size = :foo
-        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /size/)
+        @search.image_size = :small, :medium, :large
+        @search.get_uri.should include('imgsz=small%7Cmedium%7Clarge')
+        @search.image_size = :foo
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /image_size/)
       end
     end
     
