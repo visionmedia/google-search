@@ -7,7 +7,7 @@ require 'rext/all'
 HTML = File.dirname(__FILE__) + '/images.html'
 
 File.open(HTML, 'w+') do |file|
-  Google::Search::Image.new(:query => 'Cookies', :size => :huge).each do |image|
+  Google::Search::Image.new(:query => 'Cookies', :image_size => :icon).each do |image|
     file.write %(<img src="#{image.uri}">)
   end
 end

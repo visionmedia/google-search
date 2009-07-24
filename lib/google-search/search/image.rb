@@ -66,8 +66,8 @@ module Google
       #:nodoc:
       
       def initialize options = {}, &block
-        @size = options.delete :size
         @color = options.delete :color
+        @image_size = options.delete :image_size
         @image_type = options.delete :image_type
         @file_type = options.delete :file_type
         super
