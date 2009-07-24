@@ -43,11 +43,17 @@ module Google
       
       attr_reader :topic
       
+      ##
+      # Edition, such as :us, :uk, :fr_ca, etc.
+      
+      attr_reader :edition
+      
       #:nodoc:
       
       def initialize options = {}, &block
         @order_by = options.delete :order_by
         @relative_to = options.delete :relative_to
+        @edition = options.delete :edition
         super :news, options, &block
       end
       
@@ -58,7 +64,9 @@ module Google
         raise Error, "invalid topic `#{topic}'" unless topic.nil? || TOPICS.include?(topic)
         super + [
           [:scoring, order_by ? 'd' : nil],
-          [:geo, relative_to]
+          [:geo, relative_to],
+          [:topic, topic],
+          [:ned, edition]
           ]
       end
     end

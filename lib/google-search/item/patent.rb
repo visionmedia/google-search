@@ -4,9 +4,18 @@ module Google
     class Item
       class Patent < self
         
+        ##
+        # Patent id.
+        
         attr_reader :id
         
+        ##
+        # Patent status.
+        
         attr_reader :status
+        
+        ##
+        # Assignee.
         
         attr_reader :assignee
         
