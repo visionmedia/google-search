@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Google::Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            Google::Search 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/google-search/item/base_rb.html">lib/google-search/item/base.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/blog_rb.html">lib/google-search/item/blog.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/book_rb.html">lib/google-search/item/book.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/image_rb.html">lib/google-search/item/image.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/local_rb.html">lib/google-search/item/local.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/news_rb.html">lib/google-search/item/news.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/patent_rb.html">lib/google-search/item/patent.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/video_rb.html">lib/google-search/item/video.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/item/web_rb.html">lib/google-search/item/web.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/response_rb.html">lib/google-search/response.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/base_rb.html">lib/google-search/search/base.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/blog_rb.html">lib/google-search/search/blog.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/book_rb.html">lib/google-search/search/book.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/image_rb.html">lib/google-search/search/image.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/local_rb.html">lib/google-search/search/local.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/mixins/filter_rb.html">lib/google-search/search/mixins/filter.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/mixins/order_by_rb.html">lib/google-search/search/mixins/order_by.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/mixins/safety_level_rb.html">lib/google-search/search/mixins/safety_level.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/news_rb.html">lib/google-search/search/news.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/patent_rb.html">lib/google-search/search/patent.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/video_rb.html">lib/google-search/search/video.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/search/web_rb.html">lib/google-search/search/web.rb</a></li>
+            
+            <li><a href="../../files/lib/google-search/version_rb.html">lib/google-search/version.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000019">all</a>,</li>
+                
+                <li><a href="#M000018">all_items</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>E</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000017">each</a>,</li>
+                
+                <li><a href="#M000016">each_item</a>,</li>
+                
+                <li><a href="#M000015">each_response</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000024">get_hash</a>,</li>
+                
+                <li><a href="#M000023">get_raw</a>,</li>
+                
+                <li><a href="#M000025">get_response</a>,</li>
+                
+                <li><a href="#M000020">get_uri</a>,</li>
+                
+                <li><a href="#M000021">get_uri_params</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>J</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000029">json_decode</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000014">new</a>,</li>
+                
+                <li><a href="#M000022">next</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000026">response</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000027">size_for</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000030">url_encode</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>V</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000028">validate</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+        
+        <li>
+            
+            <span>Enumerable</span>
+            
+            START:includes
+        </li>
+        
+    </ul>
+    
+
+    
+
+    
+    <div class="sectiontitle">Classes and Modules</div>
+    <ul>
+        
+        <li><span class="type">MODULE</span> <a href="Search/Filter.html">Google::Search::Filter</a></li>
+        
+        <li><span class="type">MODULE</span> <a href="Search/OrderBy.html">Google::Search::OrderBy</a></li>
+        
+        <li><span class="type">MODULE</span> <a href="Search/SafetyLevel.html">Google::Search::SafetyLevel</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Blog.html">Google::Search::Blog</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Book.html">Google::Search::Book</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Error.html">Google::Search::Error</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Image.html">Google::Search::Image</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Item.html">Google::Search::Item</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Local.html">Google::Search::Local</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/News.html">Google::Search::News</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Patent.html">Google::Search::Patent</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Response.html">Google::Search::Response</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Video.html">Google::Search::Video</a></li>
+        
+        <li><span class="type">CLASS</span> <a href="Search/Web.html">Google::Search::Web</a></li>
+        
+    </ul>
+    
+
+    
+    <div class="sectiontitle">Constants</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class="attr-name">URI</td>
+            <td>=</td>
+            <td class="attr-value">'http://www.google.com/uds'</td>
+        </tr>
+        
+        
+        <tr valign='top'>
+            <td class="attr-name">VERSION</td>
+            <td>=</td>
+            <td class="attr-value">'0.0.1'</td>
+        </tr>
+        
+        
+    </table>
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>version</td>
+            <td class='attr-desc'><p>
+Version. Defaults to 1.0
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>type</td>
+            <td class='attr-desc'><p>
+<a href="Search.html">Search</a> type symbol.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>offset</td>
+            <td class='attr-desc'><p>
+Offset. Defaults to 0
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>language</td>
+            <td class='attr-desc'><p>
+Language. Defaults to :en
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>sent</td>
+            <td class='attr-desc'><p>
+Weither or not a search request has been sent.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>query</td>
+            <td class='attr-desc'><p>
+Query. Defaults to nil
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>api_key</td>
+            <td class='attr-desc'><p>
+API Key. Defaults to :notsupplied
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>size</td>
+            <td class='attr-desc'><p>
+Size. Defaults to :large
+</p>
+<pre>
+ - :small = 4
+ - :large = 8
+</pre></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>options</td>
+            <td class='attr-desc'><p>
+Additional options. All those listed above are deleted. The remaining
+represent query string key / value pairs.
+</p></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000029">
+                    
+                    <a name="M000029"></a><b>json_decode</b>(string)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Decode JSON <em>string</em>.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L198" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000029_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 198</span>
+198:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">json_decode</span> <span class="ruby-identifier">string</span>
+199:       <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">string</span>
+200:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000014">
+                    
+                    <a name="M000014"></a><b>new</b>(options = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Initialize search <em>type</em> with <em>options</em>. Optionally a block
+may be passed, and the <a href="Search.html">Search</a> instance will be
+yielded to it.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L79" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000014_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 79</span>
+79:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+80:       <span class="ruby-ivar">@type</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'::'</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+81:       <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:version</span>) <span class="ruby-operator">||</span> <span class="ruby-value">1.0</span>
+82:       <span class="ruby-ivar">@offset</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:offset</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+83:       <span class="ruby-ivar">@size</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:size</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">:large</span>
+84:       <span class="ruby-ivar">@language</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:language</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">:en</span>
+85:       <span class="ruby-ivar">@query</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:query</span>)
+86:       <span class="ruby-ivar">@api_key</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:api_key</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">:notsupplied</span>
+87:       <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+88:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-value str">'Do not initialize Google::Search; Use a subclass such as Google::Search::Web'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:search</span>
+89:       <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>
+90:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000027">
+                    
+                    <a name="M000027"></a><b>size_for</b>(sym)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Return int for size <em>sym</em>.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L183" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000027_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 183</span>
+183:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">size_for</span> <span class="ruby-identifier">sym</span>
+184:       { <span class="ruby-identifier">:small</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>,
+185:         <span class="ruby-identifier">:large</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">8</span> }[<span class="ruby-identifier">sym</span>]
+186:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000030">
+                    
+                    <a name="M000030"></a><b>url_encode</b>(string)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Url encode <em>string</em>.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L205" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000030_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 205</span>
+205:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">url_encode</span> <span class="ruby-identifier">string</span>
+206:       <span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/([^ a-zA-Z0-9_.-]+)/n</span>) {
+207:         <span class="ruby-value str">'%'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">'H2'</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">'%'</span>).<span class="ruby-identifier">upcase</span>
+208:       }.<span class="ruby-identifier">tr</span>(<span class="ruby-value str">' '</span>, <span class="ruby-value str">'+'</span>)
+209:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000019">
+                    
+                    <a name="M000019"></a><b>all</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="Search.html#M000018">all_items</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000018">
+                    
+                    <a name="M000018"></a><b>all_items</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Return all items.
+</p>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="Search.html#M000019">all</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L115" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000018_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 115</span>
+115:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all_items</span>
+116:       <span class="ruby-identifier">select</span> { <span class="ruby-keyword kw">true</span> }
+117:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000017">
+                    
+                    <a name="M000017"></a><b>each</b>(&amp;block)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="Search.html#M000016">each_item</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000016">
+                    
+                    <a name="M000016"></a><b>each_item</b>(&amp;block)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Iterate each item with <em>block</em>.
+</p>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="Search.html#M000017">each</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L103" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000016_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 103</span>
+103:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each_item</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+104:       <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">response</span>
+105:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">valid?</span>
+106:         <span class="ruby-identifier">response</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">item</span> }
+107:         <span class="ruby-identifier">each_item</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+108:       <span class="ruby-keyword kw">end</span>
+109:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000015">
+                    
+                    <a name="M000015"></a><b>each_response</b>(&amp;block)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Set a response <em>block</em> which is called every time <a
+href="Search.html#M000025">get_response</a> is called. Useful for reporting
+etc.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L96" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000015_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 96</span>
+96:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each_response</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+97:       <span class="ruby-ivar">@each_response</span> = <span class="ruby-identifier">block</span>
+98:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000024">
+                    
+                    <a name="M000024"></a><b>get_hash</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Return hash parsed from the raw JSON response.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L161" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000024_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 161</span>
+161:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_hash</span>
+162:       <span class="ruby-constant">Search</span>.<span class="ruby-identifier">json_decode</span> <span class="ruby-identifier">get_raw</span>
+163:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000023">
+                    
+                    <a name="M000023"></a><b>get_raw</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Return raw JSON response string.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L153" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000023_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 153</span>
+153:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_raw</span>
+154:       <span class="ruby-ivar">@sent</span> = <span class="ruby-keyword kw">true</span>
+155:       <span class="ruby-identifier">open</span>(<span class="ruby-identifier">get_uri</span>).<span class="ruby-identifier">read</span>
+156:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000025">
+                    
+                    <a name="M000025"></a><b>get_response</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Return <a href="Search/Response.html">Response</a> object wrapping the JSON
+response hash.
+</p>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="Search.html#M000026">response</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L169" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000025_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 169</span>
+169:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_response</span>
+170:       <span class="ruby-identifier">raw</span> = <span class="ruby-identifier">get_raw</span>
+171:       <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Search</span>.<span class="ruby-identifier">json_decode</span> <span class="ruby-identifier">raw</span>
+172:       <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'responseSize'</span>] = <span class="ruby-identifier">size</span>
+173:       <span class="ruby-identifier">response</span> = <span class="ruby-constant">Response</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">hash</span>
+174:       <span class="ruby-identifier">response</span>.<span class="ruby-identifier">raw</span> = <span class="ruby-identifier">raw</span>
+175:       <span class="ruby-ivar">@each_response</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">response</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@each_response</span>
+176:       <span class="ruby-identifier">response</span>
+177:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000020">
+                    
+                    <a name="M000020"></a><b>get_uri</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Return uri.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L123" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000020_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 123</span>
+123:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_uri</span>
+124:       <span class="ruby-constant">URI</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;/G#{@type}Search?&quot;</span> <span class="ruby-operator">+</span> 
+125:         (<span class="ruby-identifier">get_uri_params</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">to_a</span>).
+126:           <span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{key}=#{Search.url_encode(value)}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> }.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>)
+127:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000021">
+                    
+                    <a name="M000021"></a><b>get_uri_params</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+:nodoc:
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L131" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000021_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 131</span>
+131:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_uri_params</span>
+132:       <span class="ruby-identifier">validate</span>(<span class="ruby-identifier">:query</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">query</span><span class="ruby-operator">|</span> <span class="ruby-identifier">query</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:to_str</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">query</span>.<span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">empty?</span> }
+133:       <span class="ruby-identifier">validate</span>(<span class="ruby-identifier">:version</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">version</span><span class="ruby-operator">|</span> <span class="ruby-constant">Numeric</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">version</span> }
+134:       [[<span class="ruby-identifier">:start</span>, <span class="ruby-identifier">offset</span>],
+135:       [<span class="ruby-identifier">:rsz</span>, <span class="ruby-identifier">size</span>],
+136:       [<span class="ruby-identifier">:hl</span>, <span class="ruby-identifier">language</span>],
+137:       [<span class="ruby-identifier">:key</span>, <span class="ruby-identifier">api_key</span>],
+138:       [<span class="ruby-identifier">:v</span>, <span class="ruby-identifier">version</span>],
+139:       [<span class="ruby-identifier">:q</span>, <span class="ruby-identifier">query</span>]]
+140:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000022">
+                    
+                    <a name="M000022"></a><b>next</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Prepare for next request.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L145" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000022_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 145</span>
+145:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">next</span>
+146:       <span class="ruby-ivar">@offset</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Search</span>.<span class="ruby-identifier">size_for</span>(<span class="ruby-identifier">size</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">sent</span>
+147:       <span class="ruby-keyword kw">self</span>
+148:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000026">
+                    
+                    <a name="M000026"></a><b>response</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="Search.html#M000025">get_response</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000028">
+                    
+                    <a name="M000028"></a><b>validate</b>(meth, &amp;block)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+:nodoc:
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/f24044f407aec24ec389a1154d87888b347d7361/lib/google-search/search/base.rb#L190" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000028_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/google-search/search/base.rb, line 190</span>
+190:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate</span> <span class="ruby-identifier">meth</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+191:       <span class="ruby-identifier">value</span> = <span class="ruby-identifier">send</span> <span class="ruby-identifier">meth</span>
+192:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;invalid #{type} #{meth} #{value.inspect}&quot;</span>, <span class="ruby-identifier">caller</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">value</span>
+193:     <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

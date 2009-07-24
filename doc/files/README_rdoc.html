@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            README.rdoc
+        </h1>
+        <ul class="files">
+            <li>README.rdoc</li>
+            <li>Last modified: Fri Jul 24 14:01:19 -0700 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h1><a href="../classes/Google.html">Google</a> Search</h1>
+<p>
+Fast, feature rich <a href="../classes/Google.html">Google</a> Search
+client. Search web results, images, books, local, patents, blogs and news
+using an elegant Ruby API with only a single dependency.
+</p>
+<h2>Todo:</h2>
+<ul>
+<li>Generate / view rdoc
+
+</li>
+<li>Promote
+
+</li>
+</ul>
+<h2>Dependencies</h2>
+<ul>
+<li>json gem
+
+</li>
+</ul>
+<h2>Features</h2>
+<ul>
+<li>Fast
+
+</li>
+<li>Lazy Enumeration (requests more results from google, not all at once)
+
+</li>
+<li>Populates Google::Search::Item&#8217;s blog, book, image, local, news,
+patent, video, and web
+
+</li>
+<li>Clean, well documented source code
+
+</li>
+<li>Full test coverage
+
+</li>
+</ul>
+<h2>Classes</h2>
+<pre>
+  - Google::Search                  | superclass of all other search classes. Is Enumerable
+  - Google::Search::Web             | web search.
+  - Google::Search::Blog            | blog search.
+  - Google::Search::Book            | book search.
+  - Google::Search::Image           | image search.
+  - Google::Search::Local           | local search.
+  - Google::Search::News            | news search.
+  - Google::Search::Patent          | patent search.
+  - Google::Search::Video           | video search.
+  - Google::Search::Response        | single request response, containing items. Is Enumerable
+  - Google::Search::Item            | single item, superclass of all other items.
+  - Google::Search::Item::Web       | single item containing web specific data.
+  - Google::Search::Item::Blog      | single item containing blog specific data.
+  - Google::Search::Item::Book      | single item containing book specific data.
+  - Google::Search::Item::Image     | single item containing image specific data.
+  - Google::Search::Item::Local     | single item containing local specific data.
+  - Google::Search::Item::News      | single item containing news specific data.
+  - Google::Search::Item::Patent    | single item containing patent specific data.
+  - Google::Search::Item::Video     | single item containing video specific data.
+</pre>
+<h2>Arbitrary Query String Support</h2>
+<p>
+Arbitrary key / value pairs may be passed to <a
+href="../classes/Google/Search.html#M000016">Google::Search.new</a>, all
+options passed that are not assigned (deleted) will pass on to be part of
+the query string.
+</p>
+<p>
+For argument reference visit: <a
+href="http://code.google.com/apis/ajaxsearch/documentation/reference.html#_fonje_web">code.google.com/apis/ajaxsearch/documentation/reference.html#_fonje_web</a>
+</p>
+<h2>Items</h2>
+<p>
+Each item type (web, image, etc) is a subclass of <a
+href="../classes/Google/Search/Item.html">Google::Search::Item</a>, whose
+constant is Google::Search::Item::{Web, Image, Blog, etc}. Every aspect of
+google-search is well documented, so poke around to learn more or view <a
+href="spec/item_spec_rb.html">spec/item_spec.rb</a> for item attributes.
+</p>
+<h2>Image example</h2>
+<p>
+Below we simply create a new :image search, and pass a :query string. Query
+strings are urlencoded when Search#get_uri is called, so there is no reason
+to do so manually.
+</p>
+<pre>
+  File.open('path/to/images.html', 'w+') do |file|
+    Google::Search.new(:image, :query =&gt; 'Cookies').each do |image|
+      file.write %(&lt;img src=&quot;#{image.uri}&quot;&gt;)
+    end
+  end
+</pre>
+<h2>License:</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright &#169; 2009 TJ Holowaychuk <tj@vision-media.ca>
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, an d/or sell copies of the Software, and
+to permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

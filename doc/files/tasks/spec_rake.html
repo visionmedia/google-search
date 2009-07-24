@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>spec.rake</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            spec.rake
+        </h1>
+        <ul class="files">
+            <li>tasks/spec.rake</li>
+            <li>Last modified: Wed Jul 22 11:48:06 -0700 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+require &#8216;spec/rake/spectask&#8216;
+</p>
+<p>
+desc &#8220;Run all specifications&#8221; Spec::Rake::SpecTask.new(:spec)
+do |t|
+</p>
+<pre>
+  t.libs &lt;&lt; &quot;lib&quot;
+  t.spec_opts = [&quot;--color&quot;, &quot;--require&quot;, &quot;spec/spec_helper.rb&quot;]
+</pre>
+<p>
+end
+</p>
+<p>
+namespace :spec do
+</p>
+<pre>
+  desc &quot;Run all specifications verbosely&quot;
+  Spec::Rake::SpecTask.new(:verbose) do |t|
+    t.libs &lt;&lt; &quot;lib&quot;
+    t.spec_opts = [&quot;--color&quot;, &quot;--format&quot;, &quot;specdoc&quot;, &quot;--require&quot;, &quot;spec/spec_helper.rb&quot;]
+  end
+
+  desc &quot;Run specific specification verbosely (specify SPEC)&quot;
+  Spec::Rake::SpecTask.new(:select) do |t|
+    t.libs &lt;&lt; &quot;lib&quot;
+    t.spec_files = [ENV[&quot;SPEC&quot;]]
+    t.spec_opts = [&quot;--color&quot;, &quot;--format&quot;, &quot;specdoc&quot;, &quot;--require&quot;, &quot;spec/spec_helper.rb&quot;]
+  end
+</pre>
+<p>
+end
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

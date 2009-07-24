@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Google::Search::Item::Video</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            Google::Search::Item::Video 
+            
+                <span class="parent">&lt; 
+                    
+                    self
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/google-search/item/video_rb.html">lib/google-search/item/video.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000008">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>rating</td>
+            <td class='attr-desc'><p>
+Rating float.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>type</td>
+            <td class='attr-desc'><p>
+<a href="Video.html">Video</a> type.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>publisher</td>
+            <td class='attr-desc'><p>
+Publisher.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>published</td>
+            <td class='attr-desc'><p>
+Published DateTime.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>duration</td>
+            <td class='attr-desc'><p>
+Duration in seconds.
+</p></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000008">
+                    
+                    <a name="M000008"></a><b>new</b>(hash)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Initialize with <em>hash</em>.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show</a>
+                        
+                        | <a href="http://github.com/visionmedia/google-search/blob/75028380a424321f984f4b7a3d38967046a051c4/lib/google-search/item/video.rb#L35" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000008_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/google-search/item/video.rb, line 35</span>
+35:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">hash</span>
+36:           <span class="ruby-keyword kw">super</span>
+37:           <span class="ruby-ivar">@rating</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'rating'</span>].<span class="ruby-identifier">to_f</span>
+38:           <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'videoType'</span>]
+39:           <span class="ruby-ivar">@publisher</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'publisher'</span>]
+40:           <span class="ruby-ivar">@published</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'published'</span>]
+41:           <span class="ruby-ivar">@duration</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'duration'</span>].<span class="ruby-identifier">to_i</span>
+42:         <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

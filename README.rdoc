@@ -5,14 +5,6 @@ Fast, feature rich Google Search client. Search web results, images,
 books, local, patents, blogs and news using an elegant Ruby API with
 only a single dependency.
 
-== Todo:
-
-* Mixins for arguments / validation ... refactor consts etc
-* add validate method since they are similar
-* Support all current arguments 
-* Generate / view rdoc
-* Promote
-
 == Dependencies 
 
 * json gem
@@ -68,7 +60,7 @@ Query strings are urlencoded when Search#get_uri is called, so there
 is no reason to do so manually.
 
   File.open('path/to/images.html', 'w+') do |file|
-    Google::Search.new(:image, :query => 'Cookies').each do |image|
+    Google::Search::Image.new(:query => 'Cookies').each do |image|
       file.write %(<img src="#{image.uri}">)
     end
   end
