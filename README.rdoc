@@ -28,6 +28,14 @@ only a single dependency.
 == Classes
 
   - Google::Search                  | superclass of all other search classes. Is Enumerable
+  - Google::Search::Web             | web search.
+  - Google::Search::Blog            | blog search.
+  - Google::Search::Book            | book search.
+  - Google::Search::Image           | image search.
+  - Google::Search::Local           | local search.
+  - Google::Search::News            | news search.
+  - Google::Search::Patent          | patent search.
+  - Google::Search::Video           | video search.
   - Google::Search::Response        | single request response, containing items. Is Enumerable
   - Google::Search::Item            | single item, superclass of all other items.
   - Google::Search::Item::Web       | single item containing web specific data.
@@ -39,18 +47,6 @@ only a single dependency.
   - Google::Search::Item::Patent    | single item containing patent specific data.
   - Google::Search::Item::Video     | single item containing video specific data.
 
-== Image example
-
-Below we simply create a new :image search, and pass a :query string.
-Query strings are urlencoded when Search#get_uri is called, so there
-is no reason to do so manually.
-
-  File.open('path/to/images.html', 'w+') do |file|
-    Google::Search.new(:image, :query => 'Cookies').each do |image|
-      file.write %(<img src="#{image.uri}">)
-    end
-  end
-  
 == Arbitrary Query String Support
 
 Arbitrary key / value pairs may be passed to Google::Search.new, all options
@@ -64,6 +60,18 @@ Each item type (web, image, etc) is a subclass of Google::Search::Item,
 whose constant is Google::Search::Item::{Web, Image, Blog, etc}. Every aspect
 of google-search is well documented, so poke around to learn more or view
 spec/item_spec.rb for item attributes.
+
+== Image example
+
+Below we simply create a new :image search, and pass a :query string.
+Query strings are urlencoded when Search#get_uri is called, so there
+is no reason to do so manually.
+
+  File.open('path/to/images.html', 'w+') do |file|
+    Google::Search.new(:image, :query => 'Cookies').each do |image|
+      file.write %(<img src="#{image.uri}">)
+    end
+  end
 
 == License:
 
