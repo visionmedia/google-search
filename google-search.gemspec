@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{google-search}
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["TJ Holowaychuk"]
-  s.date = %q{2009-07-24}
+  s.date = %q{2009-07-27}
   s.description = %q{Google Search API}
   s.email = %q{tj@vision-media.ca}
   s.extra_rdoc_files = ["lib/google-search/item/base.rb", "lib/google-search/item/blog.rb", "lib/google-search/item/book.rb", "lib/google-search/item/image.rb", "lib/google-search/item/local.rb", "lib/google-search/item/news.rb", "lib/google-search/item/patent.rb", "lib/google-search/item/video.rb", "lib/google-search/item/web.rb", "lib/google-search/item.rb", "lib/google-search/response.rb", "lib/google-search/search/base.rb", "lib/google-search/search/blog.rb", "lib/google-search/search/book.rb", "lib/google-search/search/image.rb", "lib/google-search/search/local.rb", "lib/google-search/search/mixins/filter.rb", "lib/google-search/search/mixins/order_by.rb", "lib/google-search/search/mixins/safety_level.rb", "lib/google-search/search/mixins.rb", "lib/google-search/search/news.rb", "lib/google-search/search/patent.rb", "lib/google-search/search/video.rb", "lib/google-search/search/web.rb", "lib/google-search/search.rb", "lib/google-search/version.rb", "lib/google-search.rb", "README.rdoc", "tasks/docs.rake", "tasks/gemspec.rake", "tasks/spec.rake"]
