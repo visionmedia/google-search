@@ -13,7 +13,6 @@ describe Google::Search::Item::Web do
       item.uri.should == 'http://en.wikipedia.org/wiki/Foobar'
       item.cache_uri.should == 'http://www.google.com/search?q=cache:4styY9qq7tYJ:en.wikipedia.org'
       item.visible_uri.should == 'en.wikipedia.org'
-      item.unescaped_uri.should == 'http://en.wikipedia.org/wiki/Foobar'
     end
   end
 end

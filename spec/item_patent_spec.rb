@@ -11,9 +11,8 @@ describe Google::Search::Item::Patent do
       item.content.should include('METHOD OF AND APPARATUS FOR DETERMINING RH')
       item.assignee.should == ''
       item.application_date.should be_a(DateTime)
-      item.uri.should == 'http://www.google.com/patents/about%3Fid%3DGDMdAAAAEBAJ%26dq%3Dfoo%26client%3Dinternal-uds%26source%3duds'
+      item.uri.should == 'http://www.google.com/patents/about?id=GDMdAAAAEBAJ&dq=foo&client=internal-uds&source=uds'
       item.thumbnail_uri.should == 'http://bks9.books.google.com/patents?id=GDMdAAAAEBAJ&printsec=drawing&img=1&zoom=1&sig=ACfU3U10b3w-4hMfKTEykPmtqnoObaLhaA'
-      item.unescaped_uri.should == 'http://www.google.com/patents/about?id=GDMdAAAAEBAJ&dq=foo&client=internal-uds&source=uds'
       item.status.should == 'issued'
     end
   end

@@ -19,11 +19,6 @@ module Google
       attr_reader :uri
       
       ##
-      # Unescaped uri.
-      
-      attr_reader :unescaped_uri
-
-      ##
       # Visible uri.
       
       attr_reader :visible_uri
@@ -54,9 +49,8 @@ module Google
       def initialize hash
         @index = hash['index']
         @title = hash['titleNoFormatting'] || hash['title']
-        @uri = hash['url'] || hash['postUrl']
+        @uri = hash['unescapedUrl'] || hash['url'] || hash['postUrl']
         @content = hash['contentNoFormatting'] || hash['content']
-        @unescaped_uri = hash['unescapedUrl']
         @thumbnail_uri = hash['tbUrl']
         @thumbnail_width = hash['tbWidth'].to_i
         @thumbnail_height = hash['tbHeight'].to_i

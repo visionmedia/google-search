@@ -9,7 +9,7 @@ describe Google::Search::Item::Book do
       item.title.should include('Foo Fighters')
       item.author.should == '<b>Foo</b> Fighters (CRT), Hal Leonard Publishing Corporation'
       item.id.should == 'ISBN1423404580'
-      item.uri.should == 'http://books.google.com/books%3Fid%3DvUoCAgAACAAJ%26dq%3Dfoo%26client%3Dinternal-uds%26source%3duds'
+      item.uri.should == 'http://books.google.com/books?id=vUoCAgAACAAJ&dq=foo&client=internal-uds&source=uds'
       item.thumbnail_uri.should == 'http://bks6.books.google.com/books?id=vUoCAgAACAAJ&printsec=frontcover&img=1&zoom=5&sig=ACfU3U1NHHhXuERH30Xfn0GC3A0BW5nMPg'
       item.published_year.should == 2006
       item.pages.should == 69
