@@ -4,6 +4,7 @@ require File.dirname(__FILE__) + '/spec_helper'
 describe Google::Search do
   before :each do
     @search = Google::Search::Web.new :query => 'foo'
+    Google::Search::Defaults.clear
   end
   
   it "should throw an error when trying to initialize the base class" do
@@ -40,10 +41,42 @@ describe Google::Search do
       end
     end
   end
+
+  describe "#get_proxy" do
+    it "should return nil when not defined" do
+       @search.get_proxy.should be_nil
+    end
+
+    it "should return the proxy defined in the Defaults" do
+      proxy_value = "http://proxy.uniovi.es:8888"
+      Google::Search::Defaults.proxy = proxy_value
+      @search.get_proxy.should == proxy_value
+    end
+
+    it "should return the proxy defined during initialization" do
+      proxy_value = "http://proxy.myuniversity.edu:8085"
+      @search = Google::Search::Web.new :query => 'foo', :proxy => proxy_value
+      @search.get_proxy.should == proxy_value
+    end
+
+    it "should return the proxy defined during initialization even a default has been defined" do
+      default_proxy_value = "http://proxy.myuniversity.edu:8085"
+      per_instance_proxy_value = "http://proxy.uniovi.es:888"
+      Google::Search::Defaults.proxy = default_proxy_value
+      @search = Google::Search::Web.new :query => 'foo', :proxy => per_instance_proxy_value
+      @search.get_proxy.should == per_instance_proxy_value
+    end
+  end
   
   describe "#get_raw" do
     it "should return JSON string" do
       @search.get_raw.should be_a(String)
+    end
+
+    it "should use a proxy when provided" do
+      Google::Search::Defaults.set(:proxy,"http://proxy.uniovi.es:8888")
+      @search.should_receive(:open).with(an_instance_of(String), :proxy => "http://proxy.uniovi.es:8888").and_return(StringIO.new("<html/>"))
+      @search.get_raw
     end
   end
   
