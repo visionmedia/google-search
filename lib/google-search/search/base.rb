@@ -203,8 +203,8 @@ module Google
     # Url encode _string_.
     
     def self.url_encode string
-      string.to_s.gsub(/([^ a-zA-Z0-9_.-]+)/n) {
-        '%' + $1.unpack('H2' * $1.size).join('%').upcase
+      string.to_s.gsub(/([^ a-zA-Z0-9_.-]+)/) {
+        '%' + $1.unpack('H2' * $1.bytesize).join('%').upcase
       }.tr(' ', '+')
     end
     
