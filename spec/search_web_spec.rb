@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 require File.dirname(__FILE__) + '/spec_helper'
 
@@ -36,6 +37,12 @@ describe Google::Search::Web do
         @search.get_uri.should include('filter=0')
         @search.filter = nil
         @search.get_uri.should include('filter=0')
+      end
+    end
+    describe "multibyte string query" do
+      it "url encoding" do
+        @search.query = "日本語"
+        @search.get_uri.should include('%E6%97%A5%E6%9C%AC%E8%AA%9E')
       end
     end
   end
