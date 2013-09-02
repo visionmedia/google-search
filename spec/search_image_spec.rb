@@ -47,6 +47,8 @@ describe Google::Search::Image do
       it "should validate" do
         @search.image_type = :lineart
         @search.get_uri.should include('imgtype=lineart')
+        @search.image_type = :lineart, :photo
+        @search.get_uri.should include('imgtype=lineart%7Cphoto')
         @search.image_type = :foo
         lambda { @search.get_uri }.should raise_error(Google::Search::Error, /image_type/)
       end
