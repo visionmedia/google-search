@@ -12,7 +12,7 @@ module Google
     # Constants
     #++
     
-    URI = 'http://www.google.com/uds'
+    URI = 'https://www.google.com/uds'
     
     #--
     # Exceptions
