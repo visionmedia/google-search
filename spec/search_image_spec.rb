@@ -3,9 +3,9 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe Google::Search::Image do
   before :each do
-    @search = Google::Search::Image.new :query => 'foo'  
+    @search = Google::Search::Image.new :query => 'foo'
   end
-  
+
   describe "#get_uri" do
     describe "safety_level" do
       it "should validate" do
@@ -14,7 +14,7 @@ describe Google::Search::Image do
         @search.safety_level = :foo
         lambda { @search.get_uri }.should raise_error(Google::Search::Error, /safety_level/)
       end
-      
+
       it "should provide alternative naming :none, :medium, :high" do
         @search.safety_level = :none
         @search.get_uri.should include('safe=off')
@@ -24,7 +24,16 @@ describe Google::Search::Image do
         @search.get_uri.should include('safe=active')
       end
     end
-    
+
+    describe "right" do
+      it "should validate" do
+        @search.right = :cc_publicdomain
+        @search.get_uri.should include('as_rights=cc_publicdomain')
+        @search.right = :foo
+        lambda { @search.get_uri }.should raise_error(Google::Search::Error, /right/)
+      end
+    end
+
     describe "image_size" do
       it "should validate" do
         @search.image_size = :icon
@@ -35,14 +44,14 @@ describe Google::Search::Image do
         lambda { @search.get_uri }.should raise_error(Google::Search::Error, /image_size/)
       end
     end
-    
+
     describe "color" do
       it "should validate" do
         @search.color = 'blue'
         @search.get_uri.should include('imgcolor=blue')
       end
     end
-    
+
     describe "image_type" do
       it "should validate" do
         @search.image_type = :lineart
@@ -51,7 +60,7 @@ describe Google::Search::Image do
         lambda { @search.get_uri }.should raise_error(Google::Search::Error, /image_type/)
       end
     end
-    
+
     describe "file_type" do
       it "should validate" do
         @search.file_type = :jpg
@@ -60,7 +69,7 @@ describe Google::Search::Image do
         lambda { @search.get_uri }.should raise_error(Google::Search::Error, /file_type/)
       end
     end
-    
+
     describe "uri" do
       it "should validate" do
         @search.uri = 'http://foo.com'

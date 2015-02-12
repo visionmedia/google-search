@@ -2,21 +2,35 @@
 module Google
   class Search
     class Image < self
-      
+
       #--
       # Mixins
       #++
-      
+
       include SafetyLevel
-      
+
       #--
       # Constants
       #++
-      
+
       SIZES = :icon, :small, :medium, :large, :xlarge, :xxlarge, :huge
       TYPES = :face, :photo, :clipart, :lineart
       EXTENSIONS = :jpg, :png, :gif, :bmp
-      
+      RIGHTS = :cc_publicdomain, :cc_attribute, :cc_sharealike, :cc_noncommercial , :cc_nonderived
+
+
+      ##
+      # Right:
+      #
+      #  - :cc_publicdomain
+      #  - :cc_attribute
+      #  - :cc_sharealike
+      #  - :cc_noncommercial
+      #  - :cc_nonderived
+      #
+
+      attr_accessor :right
+
       ##
       # Image size:
       #
@@ -28,9 +42,9 @@ module Google
       #  - :xxlarge
       #  - :huge
       #
-      
+
       attr_accessor :image_size
-      
+
       ##
       # Image type:
       #
@@ -39,9 +53,9 @@ module Google
       #  - :clipart
       #  - :lineart
       #
-      
+
       attr_accessor :image_type
-      
+
       ##
       # File type:
       #
@@ -50,43 +64,46 @@ module Google
       #  - :png
       #  - :bmp
       #
-      
+
       attr_accessor :file_type
-      
+
       ##
       # Image color.
-      
+
       attr_accessor :color
-      
+
       ##
       # Specific uri to fetch images from.
-      
+
       attr_accessor :uri
-      
+
       #:nodoc:
-      
+
       def initialize options = {}, &block
         @color = options.delete :color
         @image_size = options.delete :image_size
         @image_type = options.delete :image_type
         @file_type = options.delete :file_type
+        @right = options.delete :right
         super
       end
-      
+
       #:nodoc:
-      
+
       def get_uri_params
         validate(:image_size) { |size| size.nil? || size.is_a?(Array) || SIZES.include?(size) }
         validate(:image_type) { |type| type.nil? || TYPES.include?(type) }
         validate(:file_type) { |ext| ext.nil? || EXTENSIONS.include?(ext) }
+        validate(:right) { |rght| rght.nil? || RIGHTS.include?(rght) }
         super + [
           [:safe, safety_level],
           [:imgsz, image_size.is_a?(Array) ? image_size.join('|') : image_size],
           [:imgcolor, color],
           [:imgtype, image_type],
           [:as_filetype, file_type],
+          [:as_rights, right],
           [:as_sitesearch, uri]
-          ]
+        ]
       end
     end
   end
