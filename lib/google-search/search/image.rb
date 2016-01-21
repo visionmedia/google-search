@@ -77,13 +77,13 @@ module Google
 
       def get_uri_params
         validate(:image_size) { |size| size.nil? || size.is_a?(Array) || SIZES.include?(size) }
-        validate(:image_type) { |type| type.nil? || TYPES.include?(type) }
+        validate(:image_type) { |type| type.nil? || type.is_a?(Array) || TYPES.include?(type) }
         validate(:file_type) { |ext| ext.nil? || EXTENSIONS.include?(ext) }
         super + [
           [:safe, safety_level],
           [:imgsz, image_size.is_a?(Array) ? image_size.join('|') : image_size],
           [:imgcolor, color],
-          [:imgtype, image_type],
+          [:imgtype, image_type.is_a?(Array) ? image_type.join('|') : image_type],
           [:as_filetype, file_type],
           [:as_sitesearch, uri]
           ]
