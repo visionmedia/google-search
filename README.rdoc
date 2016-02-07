@@ -7,7 +7,7 @@ only a single dependency.
 
 == Notes
 
-Google deprecated image search (https://developers.google.com/image-search/, this portion of the API no longer works.
+Google deprecated image search (https://developers.google.com/image-search), this portion of the API no longer works.
 
 == Dependencies 
 
