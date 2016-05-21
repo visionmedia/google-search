@@ -1,13 +1,12 @@
 
+__Google deprecated their API, this package no longer works__
+
 = Google Search
 
 Fast, feature rich Google Search client. Search web results, images,
 books, local, patents, blogs and news using an elegant Ruby API with
 only a single dependency.
 
-== Notes
-
-Google deprecated image search (https://developers.google.com/image-search), this portion of the API no longer works.
 
 == Dependencies 
 
