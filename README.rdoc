@@ -1,5 +1,5 @@
 
-__Google deprecated their API, this package no longer works__
+= Google deprecated their API, this package no longer works
 
 = Google Search
 
