@@ -138,6 +138,18 @@ module Google
       [:v, version],
       [:q, query]]
     end
+
+    ##
+    # Return the proxy to use following this strategy
+    #  * Get the default proxy from the configuration Defaults
+    #  * If during Search initialization a proxy was provided (per request)
+    #  Then override the former value
+    #  * Return nil (use no proxy) if it was no provided via Defaults or
+    #  during this instance initialization
+    #
+    def get_proxy
+      options[:proxy] || Google::Search::Defaults.get(:proxy)
+    end
     
     ##
     # Prepare for next request.
@@ -152,7 +164,7 @@ module Google
     
     def get_raw
       @sent = true
-      open(get_uri).read
+      open(get_uri, :proxy => get_proxy).read
     end
     
     ##
