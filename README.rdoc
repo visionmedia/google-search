@@ -1,9 +1,12 @@
 
+= Google deprecated their API, this package no longer works
+
 = Google Search
 
 Fast, feature rich Google Search client. Search web results, images,
 books, local, patents, blogs and news using an elegant Ruby API with
 only a single dependency.
+
 
 == Dependencies 
 

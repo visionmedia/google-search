@@ -13,7 +13,7 @@ module Google
     # Constants
     #++
     
-    GOOGLE_URI = 'http://www.google.com/uds'
+    GOOGLE_URI = 'https://www.google.com/uds'
     
     #--
     # Exceptions
