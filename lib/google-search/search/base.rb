@@ -1,3 +1,4 @@
+require 'open-uri'
 
 module Google
   class Search
@@ -12,7 +13,7 @@ module Google
     # Constants
     #++
     
-    URI = 'http://www.google.com/uds'
+    GOOGLE_URI = 'http://www.google.com/uds'
     
     #--
     # Exceptions
@@ -121,7 +122,7 @@ module Google
     # Return uri.
     
     def get_uri
-      URI + "/G#{@type}Search?" + 
+      GOOGLE_URI + "/G#{@type}Search?" +
         (get_uri_params + options.to_a).
           map { |key, value| "#{key}=#{Search.url_encode(value)}" unless value.nil? }.compact.join('&')
     end
@@ -152,7 +153,7 @@ module Google
     
     def get_raw
       @sent = true
-      open(get_uri).read
+      URI.open(get_uri).read
     end
     
     ##
